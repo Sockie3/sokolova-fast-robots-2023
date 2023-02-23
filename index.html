@@ -173,7 +173,12 @@
                         <ul>
                             <li>Information About ArtemisBLE: https://www.arduino.cc/reference/en/libraries/arduinoble/
                             </li>
+                            <li>https://zt88.github.io/Fast-Robots/lab2.html</li>
+                            <li>https://klarinetkat.github.io/ECE4160/#lab2</li>
+                            <li>https://rochelleb1.github.io/FastRobotsSP23/labpages/lab2.html</li>
                         </ul>
+                        <p>Thank you to the classmates above whose websites I glanced at for refrence for certain parts
+                            of the lab report!</p>
                     </div>
                 </div>
                 <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
@@ -188,11 +193,20 @@
                             pasted the commands listed in the lab instructions into the terminal in chronological order.
                             The last step was to install ArduinoBLE using the library manager in the Arduino IDE and
                             familiarize oneself with the processing commands of the Artemis board.</p>
+                        <p>Bluetooth...</p>
+                        <p>The codebase splits the lab into two main parts: The code in the Arduino IDE (located in the
+                            ble_arduino folder) and the Python code in the Jupyter Notebook (located in the ble_python
+                            folder). The code in the Arduino IDE (specifically the ble_arduino.ino sketch) is what gets
+                            run on the Artemis board. The code in Jupyter (specifically the demo.ipynb file) is where we
+                            run our commands, which include establishing the Bluetooth connection and running example
+                            commands. Both folders have additional files that allow the two parts to work together. It’s
+                            very important that both halves of the codebase are consistent with each other, otherwise
+                            communication will fail. For example, the addresses in the connections.yaml file have to
+                            match those in the ble_arduino.ino sketch.</p>
                         <p>At this point we could determine our board’s MAC address by running the ble_arduino.ino
                             sketch located in the ble_arduino folder in our codebase. The output of the program with the
                             board’s MAC address is shown in the image below.</p>
                         <img src="assets/img/mac_address.jpeg" alt="mac_address" style="width:912px;height:400px;">
-                        <p>The codebase … Bluetooth works by …</p>
                         <b>The Lab Tasks.</b>
                         <p>Once the prelab was finished, it was time to change some configurations in the codebase.
                             First, we had to copy the MAC address obtained in the prelab and paste it in the
