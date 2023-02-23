@@ -194,16 +194,24 @@
                             pasted the commands listed in the lab instructions into the terminal in chronological order.
                             The last step was to install ArduinoBLE using the library manager in the Arduino IDE and
                             familiarize oneself with the processing commands of the Artemis board.</p>
-                        <p>Bluetooth...</p>
-                        <p>The codebase splits the lab into two main parts: The code in the Arduino IDE (located in the
-                            ble_arduino folder) and the Python code in the Jupyter Notebook (located in the ble_python
-                            folder). The code in the Arduino IDE (specifically the ble_arduino.ino sketch) is what gets
-                            run on the Artemis board. The code in Jupyter (specifically the demo.ipynb file) is where we
-                            run our commands, which include establishing the Bluetooth connection and running example
-                            commands. Both folders have additional files that allow the two parts to work together. It’s
-                            very important that both halves of the codebase are consistent with each other, otherwise
-                            communication will fail. For example, the addresses in the connections.yaml file have to
-                            match those in the ble_arduino.ino sketch.</p>
+                        <p>Before moving forward with the lab, it’s important to understand two things. First, we need
+                            to know what Bluetooth is and how it works. Second, we need to understand what’s included in
+                            the provided codebase and how it works. Both topics are discussed in more detail below.</p>
+                        <p>BLUETOOTH: Bluetooth is a method of wireless communication where any device can obtain the
+                            information that it needs out of all the available data. As described in the ArtemisBLE
+                            reference in the Introduction, there’s a so-called peripheral device that behaves similarly
+                            to a bulletin board: it contains all the data and any device in the system can read it. In
+                            this lab we’re specifically using Bluetooth Low Energy, which is “optimized for low power
+                            use at low data rates” (ArduinoBLE Reference).</p>
+                        <p>CODEBASE: The codebase splits the lab into two main parts: The code in the Arduino IDE
+                            (located in the ble_arduino folder) and the Python code in the Jupyter Notebook (located in
+                            the ble_python folder). The code in the Arduino IDE (specifically the ble_arduino.ino
+                            sketch) is what gets run on the Artemis board. The code in Jupyter (specifically the
+                            demo.ipynb file) is where we run our commands, which include establishing the Bluetooth
+                            connection and running example commands. Both folders have additional files that allow the
+                            two parts to work together. It’s very important that both halves of the codebase are
+                            consistent with each other, otherwise communication will fail. For example, the addresses in
+                            the connections.yaml file have to match those in the ble_arduino.ino sketch.</p>
                         <p>At this point we could determine our board’s MAC address by running the ble_arduino.ino
                             sketch located in the ble_arduino folder in our codebase. The output of the program with the
                             board’s MAC address is shown in the image below.</p>
