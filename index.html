@@ -227,30 +227,46 @@
                         <p>After the Bluetooth connection was established, it was time to try a few commands: the “Send
                             Echo Command”, the “Get Time Command”, the “Notification Handler”, and the “Get Temperature
                             Command”.</p>
-
-                        <img src="assets/img/Exampletwo.png" alt="Exampletwo" style="width:615px;height:400px;">
-                        <p>In the “Example4-analogRead” example, the serial monitor continuously outputs the temperature
-                            read (raw ADC) from the sensor. I could change the temperature by first rubbing (warming)
-                            the board and then blowing (cooling) it. The temperature reads from these two actions are
-                            shown below in the same order.</p>
-                        <img src="assets/img/Examplethreeone.png" alt="Examplethreeone"
-                            style="width:615px;height:400px;">
-                        <img src="assets/img/Examplethreetwo.png" alt="Examplethreetwo"
-                            style="width:615px;height:400px;">
-                        <p>In the “Example1_MicrophoneOutput” the serial monitor continuously outputs the frequency
-                            detected by the microphone. Below is a video showing how the frequency read changes as I hum
-                            with various pitches.</p>
-                        <!--<video src="assets/img/Exvidfour.png" alt="Exvidfour" style="width:615px;height:400px;">-->
+                        <p>The “Send Echo Command” takes as an input some message from the user and then prints it back
+                            out, just like a real echo! To implement it in the ble_arduino.ino sketch, I copied and
+                            pasted the code from the “Ping” command and changed the line
+                            “tx_estring_value.append(“PONG”);” to “tx_estring_value.append(char_arr);”. Then I wrote two
+                            commands in the Jupyter file using the “Ping” command as an example.</p>
+                        <p>The “Get Time Command” outputs the long “currentMillis” in the following format:
+                            “T:(currentMillis)”. Because this is a new command, I first had to add “GET_TIME_MILLIS” to
+                            CommandTypes in the ble_arduino.ino sketch and to the CMD class in cmd_types.py. To
+                            implement it in the ble_arduino.ino sketch, I just copied and pasted the code from the
+                            “Ping'' command and changed the line “tx_estring_value.append(“PONG”);” to
+                            “tx_estring_value.append(millis());”. I also modified the print statement so that the output
+                            was in the format mentioned earlier. Next, I wrote the new command in Jupyter.</p>
+                        <p></p>
+                        <p></p>
+                        <p>Below are images of the Jupyter notebook and the output in the Serial Monitor, in that order,
+                            once I implemented and ran all the examples described above.
+                        </p>
+                        <img src="assets/img/commands_try_j.png" alt="commands_try_a" style="width:615px;height:400px;">
+                        <img src="assets/img/commands_try_a.png" alt="commands_try_a" style="width:615px;height:400px;">
+                        <p>It’s important to note that there is a limitation when it comes to Bluetooth communication.
+                            Let’s take 5 seconds of 16-bit values taken at 150 Hz as an example. In total, we would
+                            have:
+                        </p>
+                        <p>(5 seconds)*(150 times/second)*(16 bits)*(1 byte/8 bits) = 1500 bytes of data every 5
+                            seconds.</p>
+                        <p>We’re given that the Artemis board has 384000 bytes of RAM. This means that the maximum
+                            number of 5-second cycles that we can have is the following:</p>
+                        <p>(384000 bytes)/(1500 bytes) = 256</p>
+                        <p>So the Artemis board can’t handle more than 256 rounds of such 5-second cycles.</p>
                     </div>
                 </div>
                 <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                     <div class="flex-grow-1">
                         <div class="subheading mb-3">Conclusion.</div>
-                        <p>The importance of Lab 1 was to allow students to gain some basic knowledge and skills for the
-                            Artemis Nano board and the Arduino IDE. This experience provides a smooth transition into
-                            more complex projects because it ensures that the board works properly for simple tasks.
-                            Moreover, it demonstrated some capabilities of the Artemis board that could be applied to
-                            future Labs in ECE 4160.</p>
+                        <p>It’s important to note that there are some limitations when it comes to Bluetooth
+                            communication. First, there’s a limit to the size of values that can be sent via Bluetooth.
+                            The Arduino BLE library sets the limit to 255 bytes long. However in the case of our
+                            codebase, the size limit is 150 bytes; if we try to send data that’s larger than that, we
+                            get an error in our Python code. Another limit is …
+                        </p>
                     </div>
                 </div>
                 <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
