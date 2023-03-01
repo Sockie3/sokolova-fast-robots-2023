@@ -246,47 +246,56 @@
                         <img src="assets/img/lab_2/commands_try_a.png" alt="commands_try_a"
                             style="width:750px;height:210px;">
                         <p>After the Bluetooth connection was established, it was time to try a few commands.</p>
+                        <div class="flex-grow-1"></div>
                         <b>Task 1.</b>
                         <p>The “Send Echo Command” takes as an input some message from the user and then prints it back
                             out, just like a real echo! To implement it in the ble_arduino.ino sketch, I copied and
                             pasted the code from the “Ping” command and changed two lines. Then, I wrote two commands in
                             the Jupyter file using the “Ping” command as an example:</p>
-                        <img src="assets/img/lab_2/task_1.png" alt="commands_j" style="width:615px;height:400px;">
+                        <img src="assets/img/lab_2/task_1.png" alt="task_1" style="width:869px;height:400px;">
                         <p>The next three commands are new, so for all of them I first had to add the name of each
                             command to CommandTypes in the ble_arduino.ino sketch and to the CMD class in cmd_types.py,
                             as shown:
                         </p>
-                        <img src="assets/img/lab_2/command_types.png" alt="commands_j"
-                            style="width:615px;height:400px;">
+                        <img src="assets/img/lab_2/command_types.png" alt="command_types"
+                            style="width:410px;height:462px;">
                         <p></p>
-                        <img src="assets/img/lab_2/cmd.png" alt="commands_j" style="width:615px;height:400px;">
+                        <img src="assets/img/lab_2/cmd.png" alt="cmd" style="width:480px;height:400px;">
+                        <div class="flex-grow-1"></div>
                         <b>Task 2.</b>
                         <p>The “Get Time Command” outputs the long “currentMillis” in the following format:
                             “T:(currentMillis)”. To implement it in the ble_arduino.ino sketch, I modified the code from
                             the “Ping'' command. Next, I wrote the new command in Jupyter:</p>
-                        <img src="assets/img/lab_2/task_2.png" alt="commands_j" style="width:615px;height:400px;">
+                        <img src="assets/img/lab_2/task_2.png" alt="task_2" style="width:903px;height:300px;">
+                        <div class="flex-grow-1"></div>
                         <b>Task 3.</b>
                         <p>The “Notification Handler” allows updated data from the Artemis board to be continuously
                             printed out, which is very useful for the next two commands. To write the code, I took
                             inspiration from my classmates:</p>
-                        <img src="assets/img/lab_2/task_3.png" alt="commands_j" style="width:615px;height:400px;">
+                        <img src="assets/img/lab_2/task_3.png" alt="task_3" style="width:876px;height:300px;">
+                        <div class="flex-grow-1"></div>
                         <b>Task 4.</b>
                         <p>The “GET_TEMP_5s” sends the internal die temperature readings for different time stamps in
                             the following format “T:(time)|C:(temperature)|...”. Measurements are taken once per second
                             for five seconds. To implement this, I created a loop that repeats 5 times and has a delay
                             of 1 second after every round to ensure that measurements are taken once per second:</p>
-                        <img src="assets/img/lab_2/task_4.png" alt="commands_j" style="width:615px;height:400px;">
+                        <img src="assets/img/lab_2/task_4.png" alt="task_4" style="width:615px;height:400px;">
+                        <div class="flex-grow-1"></div>
                         <b>Task 5.</b>
                         <p>The “GET_TEMP_5s_RAPID” is almost like “GET_TEMP_5s”, except in this case we take as many
                             samples as possible over 5 seconds. Thus, to implement this I had to modify the
                             “GET_TEMP_5s” code to have a while loop that repeats until the current time is 5 seconds and
                             that doesn’t have a delay:</p>
-                        <img src="assets/img/lab_2/task_5.png" alt="commands_j" style="width:615px;height:400px;">
+                        <img src="assets/img/lab_2/task_5.png" alt="task_5" style="width:615px;height:400px;">
                         <p>Below are images of the Jupyter notebook and the output in the Serial Monitor, in that order,
                             once I implemented and ran all the examples described above.</p>
-                        <img src="assets/img/lab_2/commands_j.png" alt="commands_j" style="width:615px;height:400px;">
+                        <img src="assets/img/lab_2/commands_j.png" alt="commands_j" style="width:521px;height:400px;">
+                        <p></p>
+                        <img src="assets/img/lab_2/commands_j2.png" alt="commands_j2" style="width:615px;height:400px;">
                         <p></p>
                         <img src="assets/img/lab_2/commands_a.png" alt="commands_a" style="width:615px;height:400px;">
+                        <p></p>
+                        <img src="assets/img/lab_2/commands_a2.png" alt="commands_a2" style="width:615px;height:300px;">
                         <p>It’s important to note that there is a limitation when it comes to Bluetooth communication.
                             Let’s take 5 seconds of 16-bit values taken at 150 Hz as an example. In total, we would
                             have:
