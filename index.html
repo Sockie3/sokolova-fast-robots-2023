@@ -364,6 +364,7 @@
                         <p>The first step of the process was to complete the prelab, which involved reading through the
                             VL53L1X API user manual and data sheet while looking out for the I2C sensor address.</p>
                         <p>According to the datasheet, the I2C address is 0x52:</p>
+                        <img src="assets/img/lab_3/i2c_address.png" alt="i2c_address" style="width:885px;height:380px;">
                         <b>Using Two Sensors.</b>
                         <p>In this lab, we eventually would use 2 ToF sensors in parallel. The advantage of using two
                             sensors rather than one is that with two sensors our robot would be able to obtain more
@@ -375,11 +376,15 @@
                         <p>Another task in the prelab was to plan out the wiring for some components in the lab. Below
                             is the wiring diagram, which includes the Artemis board, the Qwiic breakout board, and the
                             two ToF sensors:</p>
+                        <img src="assets/img/lab_3/wiring_diagram.png" alt="wiring_diagram"
+                            style="width:425px;height:318px;">
                         <div class="flex-grow-1"></div>
                         <b>THE LAB TASKS.</b>
                         <b>Installations.</b>
                         <p>First, I installed the parkFun VL53L1X 4m laser distance sensor library using the Arduino IDE
                             library manager:</p>
+                        <img src="assets/img/lab_3/distance_sensor_lib.png" alt="distance_sensor_lib"
+                            style="width:270px;height:515px;">
                         <p>This would allow me to test the ToF sensors using an example from this library later in the
                             lab.</p>
                         <b>Soldering.</b>
@@ -390,17 +395,26 @@
                             schematic on the SparkFun Qwiic MultiPort web page to figure out how to solder the remaining
                             two wires. The order of the wires on the connectors gave away which port each one should be
                             connected to:</p>
+                        <img src="assets/img/lab_3/wire_colors.png" alt="wire_colors" style="width:461px;height:307px;">
                         <p>And so I soldered the blue wire to SDA and the yellow wire to SCL. I ended up with two
                             sensors that looked like this:</p>
+                        <img src="assets/img/lab_3/sensor_close.png" alt="sensor_close"
+                            style="width:386px;height:408px;">
+                        <p></p>
+                        <img src="assets/img/lab_3/sensor_far.png" alt="sensor_far" style="width:382px;height:174px;">
                         <b>One Sensor.</b>
                         <p>The first experiment involved an Artemis board connected to just one sensor. To join them, I
                             attached both the sensor and the board to the Qwiic MultiPort breakout board using Qwiic
                             connectors. The resulting setup is shown below:</p>
+                        <img src="assets/img/lab_3/one_sensor.png" alt="one_sensor" style="width:372px;height:260px;">
                         <p>Now that the physical components were ready, it was time to test them.</p>
                         <p>To start, I needed to ensure that we are using the correct I2C address and to familiarize
                             myself with I2C commands. So I connected the Artemis board and sensor setup to my computer
                             and ran the “Example1_wire_I2C” example from the Apollo3 library. As shown below, the
                             address does not match with what I expected; I expected 0x52, but instead got 0x29:</p>
+                        <img src="assets/img/lab_3/i2c_ex.png" alt="i2c_ex" style="width:500px;height:360px;">
+                        <p></p>
+                        <img src="assets/img/lab_3/0x29.png" alt="0x29" style="width:402px;height:270px;">
                         <p>To do the experiment, I had to choose one of three modes for the maximum expected range of
                             the robot: short/default (1.3 m), medium (3 m) or long (4 m). The best mode to choose for an
                             experiment depends on how far and freely our robot is expected to move. For example, if we
@@ -409,10 +423,55 @@
                             I only intend to move the board a little bit in the vicinity of my computer. The
                             short/default mode is most appropriate for this case because we only care about objects that
                             are close to us. This is what I ended up going with for this lab:</p>
+                        <img src="assets/img/lab_3/short_mode.png" alt="short_mode" style="width:670px;height:57px;">
                         <p>After setting everything up, it was time to test the (short) mode that I chose above using
                             the “Example1_ReadDistance” example from the VL53L1X 4m laser distance sensor library:</p>
+                        <img src="assets/img/lab_3/distance_ex.png" alt="distance_ex" style="width:500px;height:360px;">
+                        <p>For this part, I had to first ensure accuracy and repeatability of the sensor over some
+                            range. To do that, I designed an experiment where I measured the distance of a large box at
+                            various positions (10 mm, 50 mm, 100 mm, 150 mm, 200 mm, 250 mm, and 300 mm) and compared it
+                            to the program output.</p>
+                        <p>Here’s the measurement:</p>
+                        <img src="assets/img/lab_3/measurement.png" alt="measurement" style="width:766px;height:535px;">
+                        <p>Here’s the corresponding output:</p>
+                        <img src="assets/img/lab_3/corr_out.png" alt="corr_out" style="width:346px;height:360px;">
+                        <p>I did three trials of the experiment and plotted them below:</p>
                         <p></p>
+                        <p>As we can see, the measurements are almost exact except for when we approach zero: the output
+                            reads zero at around 10mm, before the sensor collides with the object.</p>
+                        <p>I also had to find the ranging time with StopRanging, without StopRanging, and with just the
+                            reading. To do so, I modified the code to compute the ranging time for those conditions:
+                        </p>
+                        <img src="assets/img/lab_3/time_one.png" alt="time_one" style="width:351px;height:232px;">
+                        <p>Here is a table with my findings:</p>
+                        <img src="assets/img/lab_3/time_table.png" alt="time_table" style="width:773px;height:202px;">
+                        <b>Two Sensors.</b>
+                        <p>After this, it was time to test two sensors at once. First, I had to first change the address
+                            of one of the sensors because by default both have the same one: 0x29. To do this, I
+                            connected the XSHUT pin of one sensor to one of the Artemis’s pins (green wire in the wiring
+                            diagram), as shown below:</p>
+                        <img src="assets/img/lab_3/two_sensors.png" alt="two_sensors" style="width:302px;height:403px;">
+                        <p>Thereby, I could turn off that sensor to change the address of the other one. Below is the
+                            code for that:</p>
+                        <img src="assets/img/lab_3/change_add.png" alt="change_add" style="width:455px;height:281px;">
+                        <p>I also had to modify the code so that the output showed readings from both sensors. The
+                            output below demosntrates my successful implementation:</p>
+                        <img src="assets/img/lab_3/two_sensor_out.png" alt="two_sensor_out"
+                            style="width:508px;height:313px;">
+                        <p>Next, I had to write a program that would allow me to quickly and continuously print the
+                            Artemis clock to the Serial while only printing new ToF sensor data when it’s available. To
+                            do this, I replaced the default while loop with two if-statements. That way, we only get a
+                            reading for a sensor once it’s available. Here’s the code and its output:</p>
+                        <img src="assets/img/lab_3/faster.png" alt="faster" style="width:576px;height:360px;">
                         <p></p>
+                        <img src="assets/img/lab_3/faster_out.png" alt="faster_out" style="width:475px;height:345px;">
+                        <p>As we can see from the output, our loop currently executes in 4 or 5 ms when there's no
+                            reading and two times longer when there is a reading. The limiting factor is therefore just
+                            checking whether there is a reading or not.</p>
+                        <p>Last, I had to combine the code from this lab with the code from Lab 2 so that the ToF data
+                            got sent over to my computer via Bluetooth. Consequently, the output would give time-stamped
+                            distance readings instead of temperature readings. Below is the output of the code:</p>
+                        <img src="assets/img/lab_3/bluetooth.png" alt="bluetooth" style="width:500px;height:500px;">
                     </div>
                 </div>
                 <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
