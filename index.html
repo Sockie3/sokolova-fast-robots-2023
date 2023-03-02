@@ -465,9 +465,9 @@
                             Artemis clock to the Serial while only printing new ToF sensor data when it’s available. To
                             do this, I replaced the default while loop with two if-statements. That way, we only get a
                             reading for a sensor once it’s available. Here’s the code and its output:</p>
-                        <img src="assets/img/lab_3/faster.png" alt="faster" style="width:1152px;height:720px;">
+                        <img src="assets/img/lab_3/faster.png" alt="faster" style="width:864px;height:540px;">
                         <p></p>
-                        <img src="assets/img/lab_3/faster_out.png" alt="faster_out" style="width:475px;height:345px;">
+                        <img src="assets/img/lab_3/faster_out.png" alt="faster_out" style="width:712px;height:518px;">
                         <p>As we can see from the output, our loop currently executes in 4 or 5 ms when there's no
                             reading and two times longer when there is a reading. The limiting factor is therefore just
                             checking whether there is a reading or not.</p>
