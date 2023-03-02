@@ -399,15 +399,16 @@
                         <img src="assets/img/lab_3/wire_colors.png" alt="wire_colors" style="width:461px;height:307px;">
                         <p>And so I soldered the blue wire to SDA and the yellow wire to SCL. I ended up with two
                             sensors that looked like this:</p>
-                        <img src="assets/img/lab_3/sensor_close.png" alt="sensor_close" style="width:386px;height:408px;">
+                        <img src="assets/img/lab_3/sensor_close.png" alt="sensor_close"
+                            style="width:386px;height:408px;">
                         <p></p>
-                        <img src="assets/img/lab_3/sensor_far.png" alt="sensor_far" style="width:382px;height:174px;">
+                        <img src="assets/img/lab_3/sensor_far.png" alt="sensor_far" style="width:764px;height:348px;">
                         <div class="flex-grow-1"></div>
                         <b>One Sensor.</b>
                         <p>The first experiment involved an Artemis board connected to just one sensor. To join them, I
                             attached both the sensor and the board to the Qwiic MultiPort breakout board using Qwiic
                             connectors. The resulting setup is shown below:</p>
-                        <img src="assets/img/lab_3/one_sensor.png" alt="one_sensor" style="width:372px;height:260px;">
+                        <img src="assets/img/lab_3/one_sensor.png" alt="one_sensor" style="width:744px;height:520px;">
                         <p>Now that the physical components were ready, it was time to test them.</p>
                         <p>To start, I needed to ensure that we are using the correct I2C address and to familiarize
                             myself with I2C commands. So I connected the Artemis board and sensor setup to my computer
@@ -415,7 +416,7 @@
                             address does not match with what I expected; I expected 0x52, but instead got 0x29:</p>
                         <img src="assets/img/lab_3/i2c_ex.png" alt="i2c_ex" style="width:500px;height:360px;">
                         <p></p>
-                        <img src="assets/img/lab_3/0x29.png" alt="0x29" style="width:402px;height:270px;">
+                        <img src="assets/img/lab_3/0x29.png" alt="0x29" style="width:804px;height:540px;">
                         <p>To do the experiment, I had to choose one of three modes for the maximum expected range of
                             the robot: short/default (1.3 m), medium (3 m) or long (4 m). The best mode to choose for an
                             experiment depends on how far and freely our robot is expected to move. For example, if we
@@ -435,7 +436,7 @@
                         <p>Here’s the measurement:</p>
                         <img src="assets/img/lab_3/measurement.png" alt="measurement" style="width:766px;height:535px;">
                         <p>Here’s the corresponding output:</p>
-                        <img src="assets/img/lab_3/corr_out.png" alt="corr_out" style="width:346px;height:360px;">
+                        <img src="assets/img/lab_3/corr_out.png" alt="corr_out" style="width:692px;height:720px;">
                         <p>I did three trials of the experiment and plotted them below:</p>
                         <p></p>
                         <p>As we can see, the measurements are almost exact except for when we approach zero: the output
@@ -446,6 +447,7 @@
                         <img src="assets/img/lab_3/time_one.png" alt="time_one" style="width:351px;height:232px;">
                         <p>Here is a table with my findings:</p>
                         <img src="assets/img/lab_3/time_table.png" alt="time_table" style="width:773px;height:202px;">
+                        <div class="flex-grow-1"></div>
                         <b>Two Sensors.</b>
                         <p>After this, it was time to test two sensors at once. First, I had to first change the address
                             of one of the sensors because by default both have the same one: 0x29. To do this, I
@@ -454,7 +456,7 @@
                         <img src="assets/img/lab_3/two_sensors.png" alt="two_sensors" style="width:302px;height:403px;">
                         <p>Thereby, I could turn off that sensor to change the address of the other one. Below is the
                             code for that:</p>
-                        <img src="assets/img/lab_3/change_add.png" alt="change_add" style="width:455px;height:281px;">
+                        <img src="assets/img/lab_3/change_add.png" alt="change_add" style="width:910px;height:562px;">
                         <p>I also had to modify the code so that the output showed readings from both sensors. The
                             output below demosntrates my successful implementation:</p>
                         <img src="assets/img/lab_3/two_sensor_out.png" alt="two_sensor_out"
@@ -463,7 +465,7 @@
                             Artemis clock to the Serial while only printing new ToF sensor data when it’s available. To
                             do this, I replaced the default while loop with two if-statements. That way, we only get a
                             reading for a sensor once it’s available. Here’s the code and its output:</p>
-                        <img src="assets/img/lab_3/faster.png" alt="faster" style="width:576px;height:360px;">
+                        <img src="assets/img/lab_3/faster.png" alt="faster" style="width:1152px;height:720px;">
                         <p></p>
                         <img src="assets/img/lab_3/faster_out.png" alt="faster_out" style="width:475px;height:345px;">
                         <p>As we can see from the output, our loop currently executes in 4 or 5 ms when there's no
