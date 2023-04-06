@@ -546,8 +546,12 @@
                         <p>First, I made measurements when the IMU is flat on the table:</p>
                         <p>Next, I made measurements when the IMU is flipped 90 degrees to the left:</p>
                         <p>Lastly, I made measurements when the IMU is flipped 90 degrees to the right:</p>
-                        <p>I also took a video recording of the serial plotter, from which we can see that the gyroscope measurements shift as time goes by. We can also see this in the measurements; for example when the IMU is flat, the pitch measurement is around -17 when it should be close to zero, meaning that the gyroscope isn’t very accurate. We can solve this by implementing a low-pass filter as shown below:</p>
-                        <b>Sample Data.</b>
+                        <p>I also took a video recording of the serial plotter, from which we can see that the gyroscope measurements shift as time goes by. We can also see this in the measurements; for example when the IMU is flat, the pitch measurement is around -17 when it should be close to zero, meaning that the gyroscope isn’t very accurate. Even though we have a built-in LPF, there is still some noise which can be reduced by implementing a complementary filter:</p>
+                        <p>After this, I redid the measurements for all three positions:</p>
+                        <p>When the IMU is flat on the table:</p>
+                        <p>When the IMU is flipped 90 degrees to the left:</p>
+                        <p>When the IMU is flipped 90 degrees to the right:</p>
+                        <p>As we can see, our measurements are much better and more accurate.</p>
                         <p>For this section, I first had to figure out how fast I am able to sample new values. To do that, I printed out the time stamps before the data was collected and after the data was collected:</p>
                         <p>As we can see, it takes about milliseconds. Note that this was after I removed all other print statements to speed up the data collection process.</p>
                         <p>Next, I used bluetooth to collect time-stamped IMU data via Bluetooth and save it into an array. (EDIT)</p>
@@ -603,10 +607,24 @@
                     <div class="flex-grow-1">
                         <div class="subheading mb-3">Procedure.</div>
                         <b>THE PRELAB.</b>
-                        <p>Coming Soon!</p>
+                        <p>The primary objective of the prelab is to design a way to wire together the different hardware components. The goal is to parallel-couple the inputs and outputs of the motor drivers so that we can maximize power and the speed of our robot. To do this, we had to overview the documentation and datasheet for the dual motor driver. I also referred to Ryan Chan’s website from last year. Here is the wiring diagram that I ended up with:</p>
+                        <p>Like Ryan Chan, I used pins 4 and A5 for one motor driver and pins A14 and A15 for the other one because all these pins can generate PWM signals.</p>
+                        <p>The Artemis and motor drivers should be powered from different batteries. This is because we want to maximize the amount of power given to the drivers and minimize power supply noise to the Artemis.</p>
                         <div class="flex-grow-1"></div>
                         <b>THE LAB TASKS.</b>
-                        <p>Coming Soon!</p>
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                        <p></p>
                     </div>
                 </div>
                 <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
