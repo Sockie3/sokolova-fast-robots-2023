@@ -734,24 +734,22 @@
         <!-- Lab 6-->
         <section class="resume-section" id="lab6">
            <div class="resume-section-content">
-              <h2 class="mb-5">Lab 5</h2>
+              <h2 class="mb-5">Lab 6</h2>
               <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                   <div class="flex-grow-1">
-                      <h3 class="mb-0">Motors and Open Loop Control.</h3>
+                      <h3 class="mb-0">Closed-Loop Control (PID).</h3>
                       <div class="subheading mb-3">Introduction.</div>
-                      <p>Coming Soon!</p>
+                      <p>The goal of Lab 6 was to gain experience with PID or closed-loop control. To do this, we had to choose between two possible tasks, Task A and Task B. Task A focuses on position control and Task B focuses on orientation control. I chose to complete Task A.</p>
                       <b>Materials:</b>
                       <ul>
-                          <li>1 x SparkFun RedBoard Artemis Nano
-                          <li>1 x USB cable
-                          <li>1 x 9DOF IMU sensor</li>
-                          <li>2 x 4m ToF sensor</li>
-                          <li>1 x QWIIC Breakout board</li>
-                          <li>2 x Qwiic connector</li>
-                          <li>1 x JST2 connector+cable</li>
-                          <li>1 x Force1 RC car</li>
-                          <li>1 x Li-Ion 3.7V 850mAh battery</li>
+                          <li>1 x R/C stunt car</li>
+                          <li>1 x SparkFun RedBoard Artemis Nano</li>
+                          <li>1 x USB cable</li>
+                          <li>2 x Li-Po 3.7V 650mAh (or more) battery</li>
                           <li>2 x Dual motor drivers</li>
+                          <li>2 x 4m ToF sensor</li>
+                          <li>1 x 9DOF IMU sensor</li>
+                          <li>2 x Qwiic connector</li>
                       </ul>
                       <b>Resources:</b>
                       <ul>
@@ -764,21 +762,10 @@
                   <div class="flex-grow-1">
                       <div class="subheading mb-3">Procedure.</div>
                       <b>THE PRELAB.</b>
-                      <p>The primary objective of the prelab is to design a way to wire together the different hardware components. The goal is to parallel-couple the inputs and outputs of the motor drivers so that we can maximize power and the speed of our robot. To do this, we had to overview the documentation and datasheet for the dual motor driver. I also referred to Ryan Chan’s website from last year. Here is the wiring diagram that I ended up with:</p>
-                      <p>Like Ryan Chan, I used pins 4 and A5 for one motor driver and pins A14 and A15 for the other one because all these pins can generate PWM signals.</p>
-                      <p>The Artemis and motor drivers should be powered from different batteries. This is because we want to maximize the amount of power given to the drivers and minimize power supply noise to the Artemis.</p>
+                      <p>Coming soon!</p>
                       <div class="flex-grow-1"></div>
                       <b>THE LAB TASKS.</b>
-                      <p></p>
-                      <p></p>
-                      <p></p>
-                      <p></p>
-                      <p></p>
-                      <p></p>
-                      <p></p>
-                      <p></p>
-                      <p></p>
-                      <p></p>
+                      <p>Coming soon!</p>
                       <p></p>
                       <p></p>
                       <p></p>
@@ -787,7 +774,7 @@
               <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                   <div class="flex-grow-1">
                       <div class="subheading mb-3">Conclusion.</div>
-                      <p>Coming Soon!
+                      <p>The objective of Lab 6 was to gain experience with PID or closed-loop control. To do this, I chose to complete Task A, which focuses on position control. As a result, I was able to …
                       </p>
                   </div>
                </div>
@@ -797,24 +784,22 @@
         <!-- Lab 7-->
         <section class="resume-section" id="lab7">
           <div class="resume-section-content">
-            <h2 class="mb-5">Lab 5</h2>
+            <h2 class="mb-5">Lab 7</h2>
             <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                 <div class="flex-grow-1">
-                    <h3 class="mb-0">Motors and Open Loop Control.</h3>
+                    <h3 class="mb-0">Kalman Filter.</h3>
                     <div class="subheading mb-3">Introduction.</div>
-                    <p>Coming Soon!</p>
+                    <p>The objective of Lab 7 was to execute our chosen task from Lab 6 more quickly by implementing a Kalman Filter. Because in Lab 6 I chose Task A (position control), my goal was to enable my robot to speed towards the wall but stop abruptly around 1 foot before hitting the wall.</p>
                     <b>Materials:</b>
                     <ul>
-                        <li>1 x SparkFun RedBoard Artemis Nano
-                        <li>1 x USB cable
-                        <li>1 x 9DOF IMU sensor</li>
-                        <li>2 x 4m ToF sensor</li>
-                        <li>1 x QWIIC Breakout board</li>
-                        <li>2 x Qwiic connector</li>
-                        <li>1 x JST2 connector+cable</li>
-                        <li>1 x Force1 RC car</li>
-                        <li>1 x Li-Ion 3.7V 850mAh battery</li>
-                        <li>2 x Dual motor drivers</li>
+                      <li>1 x R/C stunt car</li>
+                      <li>1 x SparkFun RedBoard Artemis Nano</li>
+                      <li>1 x USB cable</li>
+                      <li>2 x Li-Po 3.7V 650mAh (or more) battery</li>
+                      <li>2 x Dual motor drivers</li>
+                      <li>2 x 4m ToF sensor</li>
+                      <li>1 x 9DOF IMU sensor</li>
+                      <li>2 x Qwiic connector</li>
                     </ul>
                     <b>Resources:</b>
                     <ul>
@@ -827,18 +812,10 @@
                 <div class="flex-grow-1">
                     <div class="subheading mb-3">Procedure.</div>
                     <b>THE PRELAB.</b>
-                    <p>The primary objective of the prelab is to design a way to wire together the different hardware components. The goal is to parallel-couple the inputs and outputs of the motor drivers so that we can maximize power and the speed of our robot. To do this, we had to overview the documentation and datasheet for the dual motor driver. I also referred to Ryan Chan’s website from last year. Here is the wiring diagram that I ended up with:</p>
-                    <p>Like Ryan Chan, I used pins 4 and A5 for one motor driver and pins A14 and A15 for the other one because all these pins can generate PWM signals.</p>
-                    <p>The Artemis and motor drivers should be powered from different batteries. This is because we want to maximize the amount of power given to the drivers and minimize power supply noise to the Artemis.</p>
+                    <p>Coming soon!</p>
                     <div class="flex-grow-1"></div>
                     <b>THE LAB TASKS.</b>
-                    <p></p>
-                    <p></p>
-                    <p></p>
-                    <p></p>
-                    <p></p>
-                    <p></p>
-                    <p></p>
+                    <p>Coming soon!</p>
                     <p></p>
                     <p></p>
                     <p></p>
@@ -850,7 +827,7 @@
             <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                 <div class="flex-grow-1">
                     <div class="subheading mb-3">Conclusion.</div>
-                    <p>Coming Soon!
+                    <p>In Lab 7, I had to implement a Kalman Filter to execute my chosen task from Lab 6 more quickly. In the end, my robot was able to speed towards the wall but stop abruptly around 1 foot before hitting it. This is very important because we want our robots to respond quickly to obstacles and therefore avoid collisions. This will prove useful in Lab 8, where we have to record a stunt that proves that this feature of our robot works well.
                     </p>
                 </div>
             </div>
