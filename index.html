@@ -37,6 +37,8 @@
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#lab3">Lab 3</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#lab4">Lab 4</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#lab5">Lab 5</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#lab5">Lab 6</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#lab5">Lab 7</a></li>
             </ul>
         </div>
     </nav>
@@ -528,40 +530,103 @@
                         <b>THE LAB TASKS.</b>
                         <b>Set Up the IMU.</b>
                         <p>To begin, we had to set up the IMU. First, I installed the SparkFun 9DOF IMU Breakout - ICM 20948 - Arduino Library:</p>
-                        <p>Next, I connected the IMY to my Artemis board using the QWIIC connectors like so:</p>
-                        <p>Then, I ran the Example1_Basics code from that library to make sure that the IMU works.</p>
+                        <img src="assets/img/lab_4/imu_install.png" alt="imu_install"
+                            style="width:280px;height:564px;">
+                        <p>Next, I connected the IMU to my Artemis board using the QWIIC connectors like so:</p>
+                        <img src="assets/img/lab_4/imu_connections.png" alt="imu_connections"
+                            style="width:466px;height:540px;">
+                        <p>Then, I ran the Example1_Basics code from that library to make sure that the IMU works:</p>
+                        <img src="assets/img/lab_4/imu_ex_code.png" alt="imu_ex_code"
+                            style="width:576px;height:360px;">
                         <p>Below is a screenshot of the serial monitor output, which shows data from the accelerometer and the gyroscope among other things. The accelerometer gives us x,y, and z values (mg) and the gyroscope gives us roll, pitch, and yaw (DPS).</p>
+                        <img src="assets/img/lab_4/basics_works.png" alt="basics_works"
+                            style="width:576px;height:360px;">
                         <p>I also made a screen recording of the serial plotter, which shows changes in values when the IMU is moved or rotated, which shows that the IMU responds to changes in motion and position.</p>
+                        <p>Coming Soon!</p>
                         <p>Note that in the code we see that the AD0_VAL definition is 1. This is expected because according to the data sheet this is the default value when the ADR jumper is not closed. If we wanted to change the I2C address, we would solder the ADR jumper, which would mean that the AD0_VAL definition would be 0. Since we are only using one IMU, we don’t need to do that.</p>
                         <p>Also, I slightly modified the code so that there were three LED blinks at the start, as shown in the video below. That way, we know that the code works!</p>
+                        <p>Coming Soon!</p>
                         <b>Accelerometer.</b>
                         <p>The next step is to test the accelerometer by measuring roll and pitch values for different orientations of the IMU. To do that, I first needed to convert the x, y, and z values into pitch and roll values, which I did by using the code posted on the course website.</p>
                         <p>First, I made measurements when the IMU is flat on the table:</p>
+                        <img src="assets/img/lab_4/accel_0.png" alt="accel_0"
+                            style="width:580px;height:700px;">
+                        <img src="assets/img/lab_4/accel_0_out.png" alt="accel_0_out"
+                            style="width:528px;height:495px;">
                         <p>Next, I made measurements when the IMU is flipped 90 degrees to the left:</p>
+                        <img src="assets/img/lab_4/accel_1.png" alt="accel_1"
+                            style="width:530px;height:570px;">
+                        <img src="assets/img/lab_4/accel_1_out.png" alt="accel_1_out"
+                            style="width:531px;height:495px;">
                         <p>Lastly, I made measurements when the IMU is flipped 90 degrees to the right:</p>
+                        <img src="assets/img/lab_4/accel_2.png" alt="accel_2"
+                            style="width:510px;height:570px;">
+                        <img src="assets/img/lab_4/accel_2_out.png" alt="accel_2_out"
+                            style="width:531px;height:504px;">
                         <p>As we can see above, the values are quite accurate, although there is slight noise. To analyze this noise, I collected some data and plotted it in the time domain and frequency domain as shown below, respectively.</p>
+                        <img src="assets/img/lab_4/time_dom.png" alt="time_dom"
+                            style="width:629px;height:456px;">
+                        <img src="assets/img/lab_4/freq_dom.png" alt="freq_dom"
+                            style="width:604px;height:463px;">
                         <p>As we can see, we only get a low frequency response and not high frequency noise because there is a built-in LPF in this particular model. This means that noise is reduced and we don’t need an additional low-pass filter.</p>
                         <b>Gyroscope.</b>
                         <p>The next phase was to assess the gyroscope by measuring pitch, roll, and yaw values for different orientations of the IMU. To do that, I first needed to compute the pitch, roll, and yaw values, which I did by using the code posted on the course website.</p>
                         <p>First, I made measurements when the IMU is flat on the table:</p>
+                        <img src="assets/img/lab_4/gyr_0.jpg" alt="gyr_0"
+                            style="width:508px;height:500px;">
+                        <img src="assets/img/lab_4/gyr_0_out.png" alt="gyr_0_out"
+                            style="width:613px;height:493px;">
                         <p>Next, I made measurements when the IMU is flipped 90 degrees to the left:</p>
+                        <img src="assets/img/lab_4/gyr_1.jpg" alt="gyr_1"
+                            style="width:570px;height:598px;">
+                        <img src="assets/img/lab_4/gyr_1_out.png" alt="gyr_1_out"
+                            style="width:611px;height:493px;">
                         <p>Lastly, I made measurements when the IMU is flipped 90 degrees to the right:</p>
-                        <p>I also took a video recording of the serial plotter, from which we can see that the gyroscope measurements shift as time goes by. We can also see this in the measurements; for example when the IMU is flat, the pitch measurement is around -17 when it should be close to zero, meaning that the gyroscope isn’t very accurate. Even though we have a built-in LPF, there is still some noise which can be reduced by implementing a complementary filter:</p>
+                        <img src="assets/img/lab_4/gyr_2.jpg" alt="gyr_2"
+                            style="width:550px;height:550px;">
+                        <img src="assets/img/lab_4/gyr_2_out.png" alt="gyr_2_out"
+                            style="width:611px;height:492px;">
+                        <p>I also took a video recording of the serial plotter, from which we can see that the gyroscope measurements shift as time goes by:</p>
+                        <p>Coming Soon!</p>
+                        <p>We can also see this in the measurements; for example when the IMU is flat, the pitch measurement is around -17 when it should be close to zero, meaning that the gyroscope isn’t very accurate. Even though we have a built-in LPF, there is still some noise which can be reduced by implementing a complementary filter:</p>
+                        <img src="assets/img/lab_4/gyr_cf.png" alt="gyr_cf"
+                            style="width:608px;height:376px;">
                         <p>After this, I redid the measurements for all three positions:</p>
                         <p>When the IMU is flat on the table:</p>
+                        <img src="assets/img/lab_4/gyr_0.jpg" alt="gyr_0"
+                            style="width:508px;height:500px;">
+                        <img src="assets/img/lab_4/gyr_0_redo.png" alt="gyr_0_redo"
+                            style="width:611px;height:465px;">
                         <p>When the IMU is flipped 90 degrees to the left:</p>
+                        <img src="assets/img/lab_4/gyr_1.jpg" alt="gyr_1"
+                            style="width:570px;height:598px;">
+                        <img src="assets/img/lab_4/gyr_1_redo.png" alt="gyr_1_redo"
+                            style="width:611px;height:465px;">
                         <p>When the IMU is flipped 90 degrees to the right:</p>
+                        <img src="assets/img/lab_4/gyr_2.jpg" alt="gyr_2"
+                            style="width:550px;height:550px;">
+                        <img src="assets/img/lab_4/gyr_2_redo.png" alt="gyr_2_redo"
+                            style="width:611px;height:465px;">
                         <p>As we can see, our measurements are much better and more accurate.</p>
+                        <b>Sample Data.</b>
                         <p>For this section, I first had to figure out how fast I am able to sample new values. To do that, I printed out the time stamps before the data was collected and after the data was collected:</p>
+                        <p>Coming Soon!</p>
                         <p>As we can see, it takes about milliseconds. Note that this was after I removed all other print statements to speed up the data collection process.</p>
                         <p>Next, I used bluetooth to collect time-stamped IMU data via Bluetooth and save it into an array. (EDIT)</p>
+                        <p>Coming Soon!</p>
                         <p>Then, I used bluetooth to collect 5s worth of time-stamped IMU data along with ToF data, which I stored in separate arrays. I did this because … (EDIT)</p>
+                        <p>Coming Soon!</p>
                         <b>Cut the Cord!</b>
-                        <p>In this lab we are given two kinds of batteries. The first one is 3.7V 850mAh, which we use to power motors via the motor driver. The second one is 3.7V 650mAh, which we use to power the Artemis and other digital electronics. To make the 650mAh battery compatible with the Artemis board, I had to solder the cables from the battery to JST connectors as shown below.</p>
+                        <p>In this lab we are given two kinds of batteries. The first one is 3.7V 850mAh, which we use to power motors via the motor driver. The second one is 3.7V 650mAh, which we use to power the Artemis and other digital electronics. To make the 650mAh battery compatible with the Artemis board, I had to solder the cables from the battery to JST connectors as shown below:</p>
+                        <img src="assets/img/lab_4/cut_the_cord.jpg" alt="cut_the_cord"
+                            style="width:542px;height:416px;">
                         <b>Record a Stunt.</b>
                         <p>The last part of the lab was to play with the toy car! First, I attached the 850mAh battery to the toy car and spent a few minutes testing it out on its own, as shown in the video below:</p>
+                        <p>Coming Soon!</p>
                         <p>Next, I attached the 650mAh battery to the Artemis board, after which I attached the board and the other components to the car. I spent some time driving the car around like this, as shown in the video below:</p>
+                        <p>Coming Soon!</p>
                         <p>Also, while playing with the car the second time, I collected some bluetooth data from the IMU, which is shown in the graphs below:</p>
+                        <p>Coming Soon!</p>
                     </div>
                 </div>
                 <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
@@ -597,7 +662,6 @@
                         </ul>
                         <b>Resources:</b>
                         <ul>
-                            <li>https://zt88.github.io/Fast-Robots/index.html</li>
                             <li>https://klarinetkat.github.io/ECE4160/#ece4160intro</li>
                             <li>https://cwf54.github.io/#interests</li>
                         </ul>
@@ -608,21 +672,50 @@
                         <div class="subheading mb-3">Procedure.</div>
                         <b>THE PRELAB.</b>
                         <p>The primary objective of the prelab is to design a way to wire together the different hardware components. The goal is to parallel-couple the inputs and outputs of the motor drivers so that we can maximize power and the speed of our robot. To do this, we had to overview the documentation and datasheet for the dual motor driver. I also referred to Ryan Chan’s website from last year. Here is the wiring diagram that I ended up with:</p>
+                        <img src="assets/img/lab_5/wiring_diagram.jpeg" alt="wiring_diagram"
+                            style="width:626px;height:694px;">
                         <p>Like Ryan Chan, I used pins 4 and A5 for one motor driver and pins A14 and A15 for the other one because all these pins can generate PWM signals.</p>
                         <p>The Artemis and motor drivers should be powered from different batteries. This is because we want to maximize the amount of power given to the drivers and minimize power supply noise to the Artemis.</p>
                         <div class="flex-grow-1"></div>
                         <b>THE LAB TASKS.</b>
+                        <b>Oscilloscope Test.</b>
+                        <p>First, I used the wiring diagram that I came up with in the prelab to create connections between the Artemis board and the motor drivers, as shown below:</p>
+                        <img src="assets/img/lab_5/wiring_pic.jpg" alt="wiring_pic"
+                            style="width:605px;height:806px;">
+                        <p>The next step was to show that we can regulate the power on the motor driver output. To do that, we had to test our motor drivers using an oscilloscope. First, I had to write a program using analogWrite to generate PWM signals:</p>
+                        <img src="assets/img/lab_5/osc_code.png" alt="osc_code"
+                            style="width:559px;height:351px;">
+                        <p>Then, I connected one of the motor drivers to a power supply and an oscilloscope, as shown below:</p>
+                        <img src="assets/img/lab_5/pwr_setup.jpg" alt="pwr_setup"
+                            style="width:626px;height:694px;">
+                        <p>I set the power supply to be 3.7 V to match the nominal voltage of the battery that we are using for our robot. I tested out both motor drivers by changing the pin numbers in the code above. Here are the results:</p>
+                        <img src="assets/img/lab_5/pwr_0.jpg" alt="pwr_0"
+                            style="width:794px;height:525px;">
+                        <img src="assets/img/lab_5/osc_0.jpg" alt="osc_0"
+                            style="width:743px;height:504px;">
+                        <img src="assets/img/lab_5/pwr_1.jpg" alt="pwr_1"
+                            style="width:750px;height:533px;">
+                        <img src="assets/img/lab_5/osc_1.jpg" alt="osc_1"
+                            style="width:781px;height:586px;">
+                        <p>As we can see, both motor drivers work properly!</p>
+                        <b>Assembling the Car!</b>
                         <p></p>
+                        <p>Coming soon!</p>
                         <p></p>
-                        <p></p>
-                        <p></p>
-                        <p></p>
-                        <p></p>
-                        <p></p>
-                        <p></p>
-                        <p></p>
-                        <p></p>
-                        <p></p>
+                        <p>Coming soon!</p>
+                        <p>Next, it was time to assemble the car! I inserted all the components, including the Artemis, the ToF sensors, the IMU and the motor drivers into the car, like so:</p>
+                        <img src="assets/img/lab_5/car_wiring_0.jpg" alt="car_wiring_0"
+                            style="width:500px;height:540px;">
+                        <img src="assets/img/lab_5/car_wiring_1.jpg" alt="car_wiring_1"
+                            style="width:500px;height:667px;">
+                        <b>Testing the Car.</b>
+                        <p>The last part of the lab was to test our robot! The first step was to find the lower limit of the PWM duty cycle, or in other words, what’s the smallest signal I can send to my robot and still have the wheels rolling on the ground. I found this value to be…</p>
+                        <p>Next, I tested my robot to see if it can travel in a straight line, meaning that the right and left wheels spin at the same rate. I found there to be a slight difference in the wheel speeds, which was corrected by a X calibration factor. Here is a video of the robot traveling in a straight line after all necessary adjustments:</p>
+                        <p>Coming soon!</p>
+                        <p>Lastly, I took a video where I demonstrated open loop, untethered control of my robot with some turns:</p>
+                        <p>Coming soon!</p>
+                        <p>Here is the code that I wrote to make that happen:</p>
+                        <p>Coming soon!</p>
                         <p></p>
                         <p></p>
                     </div>
@@ -630,10 +723,136 @@
                 <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                     <div class="flex-grow-1">
                         <div class="subheading mb-3">Conclusion.</div>
-                        <p>Coming Soon!
+                        <p>In Lab 5, we replaced manual control of the toy car with open loop control by replacing the original board in the toy car with the hardware that we created over the past few labs. This is a major milestone in our robot development journey because it combines everything that we have done in ECE 4160 so far and paves way for new and interesting experiments!
                         </p>
                     </div>
+                 </div>
+              </div>
+      </section>
+      <hr class="m-0" />
+      <!-- Lab 6-->
+      <section class="resume-section" id="lab5">
+          <div class="resume-section-content">
+              <h2 class="mb-5">Lab 5</h2>
+              <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                  <div class="flex-grow-1">
+                      <h3 class="mb-0">Motors and Open Loop Control.</h3>
+                      <div class="subheading mb-3">Introduction.</div>
+                      <p>Coming Soon!</p>
+                      <b>Materials:</b>
+                      <ul>
+                          <li>1 x SparkFun RedBoard Artemis Nano
+                          <li>1 x USB cable
+                          <li>1 x 9DOF IMU sensor</li>
+                          <li>2 x 4m ToF sensor</li>
+                          <li>1 x QWIIC Breakout board</li>
+                          <li>2 x Qwiic connector</li>
+                          <li>1 x JST2 connector+cable</li>
+                          <li>1 x Force1 RC car</li>
+                          <li>1 x Li-Ion 3.7V 850mAh battery</li>
+                          <li>2 x Dual motor drivers</li>
+                      </ul>
+                      <b>Resources:</b>
+                      <ul>
+                          <li>https://klarinetkat.github.io/ECE4160/#ece4160intro</li>
+                          <li>https://cwf54.github.io/#interests</li>
+                      </ul>
+                  </div>
+              </div>
+              <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                  <div class="flex-grow-1">
+                      <div class="subheading mb-3">Procedure.</div>
+                      <b>THE PRELAB.</b>
+                      <p>The primary objective of the prelab is to design a way to wire together the different hardware components. The goal is to parallel-couple the inputs and outputs of the motor drivers so that we can maximize power and the speed of our robot. To do this, we had to overview the documentation and datasheet for the dual motor driver. I also referred to Ryan Chan’s website from last year. Here is the wiring diagram that I ended up with:</p>
+                      <p>Like Ryan Chan, I used pins 4 and A5 for one motor driver and pins A14 and A15 for the other one because all these pins can generate PWM signals.</p>
+                      <p>The Artemis and motor drivers should be powered from different batteries. This is because we want to maximize the amount of power given to the drivers and minimize power supply noise to the Artemis.</p>
+                      <div class="flex-grow-1"></div>
+                      <b>THE LAB TASKS.</b>
+                      <p></p>
+                      <p></p>
+                      <p></p>
+                      <p></p>
+                      <p></p>
+                      <p></p>
+                      <p></p>
+                      <p></p>
+                      <p></p>
+                      <p></p>
+                      <p></p>
+                      <p></p>
+                      <p></p>
+                  </div>
+              </div>
+              <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                  <div class="flex-grow-1">
+                      <div class="subheading mb-3">Conclusion.</div>
+                      <p>Coming Soon!
+                      </p>
+                  </div>
+               </div>
+            </div>
+      </section>
+      <hr class="m-0" />
+      <!-- Lab 7-->
+            <section class="resume-section" id="lab5">
+            <div class="resume-section-content">
+            <h2 class="mb-5">Lab 5</h2>
+            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                <div class="flex-grow-1">
+                    <h3 class="mb-0">Motors and Open Loop Control.</h3>
+                    <div class="subheading mb-3">Introduction.</div>
+                    <p>Coming Soon!</p>
+                    <b>Materials:</b>
+                    <ul>
+                        <li>1 x SparkFun RedBoard Artemis Nano
+                        <li>1 x USB cable
+                        <li>1 x 9DOF IMU sensor</li>
+                        <li>2 x 4m ToF sensor</li>
+                        <li>1 x QWIIC Breakout board</li>
+                        <li>2 x Qwiic connector</li>
+                        <li>1 x JST2 connector+cable</li>
+                        <li>1 x Force1 RC car</li>
+                        <li>1 x Li-Ion 3.7V 850mAh battery</li>
+                        <li>2 x Dual motor drivers</li>
+                    </ul>
+                    <b>Resources:</b>
+                    <ul>
+                        <li>https://klarinetkat.github.io/ECE4160/#ece4160intro</li>
+                        <li>https://cwf54.github.io/#interests</li>
+                    </ul>
                 </div>
+            </div>
+            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                <div class="flex-grow-1">
+                    <div class="subheading mb-3">Procedure.</div>
+                    <b>THE PRELAB.</b>
+                    <p>The primary objective of the prelab is to design a way to wire together the different hardware components. The goal is to parallel-couple the inputs and outputs of the motor drivers so that we can maximize power and the speed of our robot. To do this, we had to overview the documentation and datasheet for the dual motor driver. I also referred to Ryan Chan’s website from last year. Here is the wiring diagram that I ended up with:</p>
+                    <p>Like Ryan Chan, I used pins 4 and A5 for one motor driver and pins A14 and A15 for the other one because all these pins can generate PWM signals.</p>
+                    <p>The Artemis and motor drivers should be powered from different batteries. This is because we want to maximize the amount of power given to the drivers and minimize power supply noise to the Artemis.</p>
+                    <div class="flex-grow-1"></div>
+                    <b>THE LAB TASKS.</b>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                </div>
+            </div>
+            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                <div class="flex-grow-1">
+                    <div class="subheading mb-3">Conclusion.</div>
+                    <p>Coming Soon!
+                    </p>
+                </div>
+            </div>
                 <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                     <div class="flex-grow-1">
                     </div>
