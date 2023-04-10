@@ -546,14 +546,16 @@
                         <img src="assets/img/lab_4/basics_works.png" alt="basics_works"
                             style="width:576px;height:360px;">
                         <p>I also made a screen recording of the serial plotter, which shows changes in values when the IMU is moved or rotated, which shows that the IMU responds to changes in motion and position.</p>
-                        <iframe width="720" height="450"
+                        <li>https://youtu.be/Z-yov73dgz8</li>
+                        <!-- <iframe width="720" height="450"
                             src="https://youtu.be/Z-yov73dgz8">
-                            </iframe>
+                            </iframe> -->
                         <p>Note that in the code we see that the AD0_VAL definition is 1. This is expected because according to the data sheet this is the default value when the ADR jumper is not closed. If we wanted to change the I2C address, we would solder the ADR jumper, which would mean that the AD0_VAL definition would be 0. Since we are only using one IMU, we don’t need to do that.</p>
                         <p>Also, I slightly modified the code so that there were three LED blinks at the start, as shown in the video below. That way, we know that the code works!</p>
-                        <iframe width="640" height="360"
+                        <li>https://youtu.be/ggAP2HXRiaU</li>
+                        <!-- <iframe width="640" height="360"
                             src="https://youtu.be/ggAP2HXRiaU">
-                            </iframe>
+                            </iframe> -->
                         <b>Accelerometer.</b>
                         <p>The next step is to test the accelerometer by measuring roll and pitch values for different orientations of the IMU. To do that, I first needed to convert the x, y, and z values into pitch and roll values, which I did by using the code posted on the course website.</p>
                         <p>First, I made measurements when the IMU is flat on the table:</p>
@@ -595,9 +597,10 @@
                         <img src="assets/img/lab_4/gyr_2_out.png" alt="gyr_2_out"
                             style="width:611px;height:492px;">
                         <p>I also took a video recording of the serial plotter, from which we can see that the gyroscope measurements shift as time goes by:</p>
-                        <iframe width="720" height="450"
+                        <li>https://www.youtube.com/watch?v=MFT6YPM-oI4</li>
+                        <!-- <iframe width="720" height="450"
                             src="https://www.youtube.com/watch?v=MFT6YPM-oI4">
-                            </iframe>
+                            </iframe> -->
                         <p>We can also see this in the measurements; for example when the IMU is flat, the pitch measurement is around -17 when it should be close to zero, meaning that the gyroscope isn’t very accurate. Even though we have a built-in LPF, there is still some noise which can be reduced by implementing a complementary filter:</p>
                         <img src="assets/img/lab_4/gyr_cf.png" alt="gyr_cf"
                             style="width:608px;height:376px;">
@@ -648,9 +651,10 @@
                         <p>The last part of the lab was to play with the toy car! First, I attached the 850mAh battery to the toy car and spent a few minutes testing it out on its own, as shown in the video below:</p>
                         <p>(Note: I disassembled my car for Lab 5 before realizing I have to do this, so I sadly don't have footage for this. However, I am quite confident that I can play with toy cars!)</p>
                         <p>Next, I attached the 650mAh battery to the Artemis board, after which I attached the board and the other components to the car. I spent some time movinging the car around like this, as shown in the video below:</p>
-                        <iframe width="720" height="450"
+                        <li>https://youtube.com/shorts/uTzZVs6Ons4?feature=share</li>
+                        <!-- <iframe width="720" height="450"
                             src="https://youtube.com/shorts/uTzZVs6Ons4?feature=share">
-                            </iframe>
+                            </iframe> -->
                         <p>Also, while playing with the car, I collected some bluetooth data from the IMU, which is shown in the graphs below:</p>
                         <img src="assets/img/lab_4/get_tof_imu.png" alt="get_tof_imu"
                             style="width:414px;height:309px;">
