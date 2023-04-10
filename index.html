@@ -475,8 +475,12 @@
                             checking whether there is a reading or not.</p>
                         <p>Last, I had to combine the code from this lab with the code from Lab 2 so that the ToF data
                             got sent over to my computer via Bluetooth. Consequently, the output would give time-stamped
-                            distance readings instead of temperature readings. Below is the output of the code:</p>
-                        <img src="assets/img/lab_3/bluetooth.png" alt="bluetooth" style="width:500px;height:500px;">
+                            distance readings instead of temperature readings. Below is my code:</p>
+                          <img src="assets/img/lab_3/get_tof.png" alt="get_tof" style="width:711px;height:558px;">
+                        <p>Here is the output of the code:</p>
+                        <img src="assets/img/lab_3/bluetooth_0.png" alt="bluetooth_0" style="width:720px;height:397px;">
+                        <img src="assets/img/lab_3/bluetooth_1.png" alt="bluetooth_1" style="width:720px;height:398px;">
+                        <img src="assets/img/lab_3/bluetooth_2.png" alt="bluetooth_2" style="width:720px;height:398px;">
                     </div>
                 </div>
                 <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
@@ -610,12 +614,25 @@
                         <p>As we can see, our measurements are much better and more accurate.</p>
                         <b>Sample Data.</b>
                         <p>For this section, I first had to figure out how fast I am able to sample new values. To do that, I printed out the time stamps before the data was collected and after the data was collected:</p>
-                        <p>Coming Soon!</p>
-                        <p>As we can see, it takes about milliseconds. Note that this was after I removed all other print statements to speed up the data collection process.</p>
-                        <p>Next, I used bluetooth to collect time-stamped IMU data via Bluetooth and save it into an array. (EDIT)</p>
-                        <p>Coming Soon!</p>
-                        <p>Then, I used bluetooth to collect 5s worth of time-stamped IMU data along with ToF data, which I stored in separate arrays. I did this because … (EDIT)</p>
-                        <p>Coming Soon!</p>
+                        <img src="assets/img/lab_4/timing.png" alt="timing"
+                            style="width:691px;height:432px;">
+                        <p>As we can see, it takes about 2-3 milliseconds. Note that this was after I removed all other print statements to speed up the data collection process.</p>
+                        <p>Next, I used bluetooth to collect time-stamped IMU data via Bluetooth and save it into an array:</p>
+                        <p>Below is my Arduino code, python code, and the output that it generated in Jupyter:</p>
+                        <img src="assets/img/lab_4/get_imu.png" alt="get_imu"
+                            style="width:652px;height:566px;">
+                        <img src="assets/img/lab_4/gi.png" alt="gi"
+                            style="width:720px;height:398px;">
+                        <p>Then, I used bluetooth to collect 5s worth of time-stamped IMU data along with ToF data, which I stored in separate arrays. I did this because having the data separated is more convenient for making plots; instead of having to index, I can just refer to whatever I want to plot.</p>
+                        <p>Below is my Arduino code, python code, and the output that it generated in Jupyter:</p>
+                        <img src="assets/img/lab_4/get_tof_imu.png" alt="get_tof_imu"
+                            style="width:511px;height:709px;">
+                        <img src="assets/img/lab_4/gti_0.png" alt="gti_0"
+                            style="width:720px;height:398px;">
+                        <img src="assets/img/lab_4/gti_1.png" alt="gti_1"
+                            style="width:720px;height:398px;">
+                        <img src="assets/img/lab_4/gti_2.png" alt="gti_2"
+                            style="width:720px;height:398px;">
                         <b>Cut the Cord!</b>
                         <p>In this lab we are given two kinds of batteries. The first one is 3.7V 850mAh, which we use to power motors via the motor driver. The second one is 3.7V 650mAh, which we use to power the Artemis and other digital electronics. To make the 650mAh battery compatible with the Artemis board, I had to solder the cables from the battery to JST connectors as shown below:</p>
                         <img src="assets/img/lab_4/cut_the_cord.jpg" alt="cut_the_cord"
@@ -627,7 +644,22 @@
                         <p>Next, I attached the 650mAh battery to the Artemis board, after which I attached the board and the other components to the car. I spent some time movinging the car around like this, as shown in the video below:</p>
                         <p>Coming Soon!</p>
                         <p>Also, while playing with the car, I collected some bluetooth data from the IMU, which is shown in the graphs below:</p>
-                        <p>Coming Soon!</p>
+                        <img src="assets/img/lab_4/get_tof_imu.png" alt="get_tof_imu"
+                            style="width:511px;height:709px;">
+                        <img src="assets/img/lab_4/d1_plt.png" alt="d1_plt"
+                            style="width:720px;height:398px;">
+                        <img src="assets/img/lab_4/d2_plt.png" alt="d2_plt"
+                            style="width:720px;height:398px;">
+                        <img src="assets/img/lab_4/ap_plt.png" alt="ap_plt"
+                            style="width:720px;height:398px;">
+                        <img src="assets/img/lab_4/ar_plt.png" alt="ar_plt"
+                            style="width:511px;height:709px;">
+                        <img src="assets/img/lab_4/gp_plt.png" alt="gp_plt"
+                            style="width:720px;height:398px;">
+                        <img src="assets/img/lab_4/gr_plt.png" alt="gr_plt"
+                            style="width:720px;height:398px;">
+                        <img src="assets/img/lab_4/gy_plt.png" alt="gy_plt"
+                            style="width:720px;height:398px;">
                     </div>
                 </div>
                 <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
@@ -739,7 +771,7 @@
                   <div class="flex-grow-1">
                       <h3 class="mb-0">Closed-Loop Control (PID).</h3>
                       <div class="subheading mb-3">Introduction.</div>
-                      <p>The goal of Lab 6 was to gain experience with PID or closed-loop control. To do this, we had to choose between two possible tasks, Task A and Task B. Task A focuses on position control and Task B focuses on orientation control. I chose to complete Task A.</p>
+                      <p>The goal of Lab 6 was to gain experience with PID or closed-loop control. The advantage of closed-loop control over open-loop control is that we are giving our robot the ability to respond to certain stimuli instead of allowing it to drive around in a predetermined way. For this lab, we had to choose between two possible tasks, Task A and Task B. Task A focuses on position control and Task B focuses on orientation control. I chose to complete Task A.</p>
                       <b>Materials:</b>
                       <ul>
                           <li>1 x R/C stunt car</li>
@@ -762,7 +794,9 @@
                   <div class="flex-grow-1">
                       <div class="subheading mb-3">Procedure.</div>
                       <b>THE PRELAB.</b>
-                      <p>Coming soon!</p>
+                      <p>The primary objective of the prelab is to design a way to facilitate debugging. And so to prepare for this lab, I made a  copy of my ECE 4160 folder, created a new virtual environment, and changed the structure of my code. In previous labs, I had most of my code in cases that I would call in Jupyter and to obtain data, it would be sent to my computer in real time. This was not a very good structure for two reasons. First, when the code is in cases, it can’t be interrupted or terminated before it’s complete. Also, sending bluetooth data in real time is time-consuming and inefficient.</p>
+                      <p>To solve the problems above, I decided to change the structure of my code such that most of my code was located in the main loop and I had a few short cases. The main loop is where data is collected and saved into an array without sending it to my computer right away. One of the cases converts the data array into a string and sends it via bluetooth. The other cases are mostly there to change values of global variables. This is a better system because if most of the code is in the main loop, we can make interrupts, and sending data over after it’s already been collected is quicker and more efficient.</p>
+                      <p>Here is the code that I wrote for the prelab:</p>
                       <div class="flex-grow-1"></div>
                       <b>THE LAB TASKS.</b>
                       <p>Coming soon!</p>
