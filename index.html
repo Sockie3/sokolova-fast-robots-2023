@@ -538,24 +538,26 @@
                             style="width:280px;height:564px;">
                         <p>Next, I connected the IMU to my Artemis board using the QWIIC connectors like so:</p>
                         <img src="assets/img/lab_4/imu_connections.png" alt="imu_connections"
-                            style="width:466px;height:540px;">
+                            style="width:606px;height:702px;">
                         <p>Then, I ran the Example1_Basics code from that library to make sure that the IMU works:</p>
                         <img src="assets/img/lab_4/imu_ex_code.png" alt="imu_ex_code"
-                            style="width:576px;height:360px;">
+                            style="width:864px;height:540px;">
                         <p>Below is a screenshot of the serial monitor output, which shows data from the accelerometer and the gyroscope among other things. The accelerometer gives us x,y, and z values (mg) and the gyroscope gives us roll, pitch, and yaw (DPS).</p>
                         <img src="assets/img/lab_4/basics_works.png" alt="basics_works"
-                            style="width:576px;height:360px;">
+                            style="width:864px;height:540px;">
                         <p>I also made a screen recording of the serial plotter, which shows changes in values when the IMU is moved or rotated, which shows that the IMU responds to changes in motion and position.</p>
                         <li>https://youtu.be/Z-yov73dgz8</li>
                         <!-- <iframe width="720" height="450"
                             src="https://youtu.be/Z-yov73dgz8">
                             </iframe> -->
+                        <p> </p>
                         <p>Note that in the code we see that the AD0_VAL definition is 1. This is expected because according to the data sheet this is the default value when the ADR jumper is not closed. If we wanted to change the I2C address, we would solder the ADR jumper, which would mean that the AD0_VAL definition would be 0. Since we are only using one IMU, we don’t need to do that.</p>
                         <p>Also, I slightly modified the code so that there were three LED blinks at the start, as shown in the video below. That way, we know that the code works!</p>
                         <li>https://youtu.be/ggAP2HXRiaU</li>
                         <!-- <iframe width="640" height="360"
                             src="https://youtu.be/ggAP2HXRiaU">
                             </iframe> -->
+                        <p> </p>
                         <b>Accelerometer.</b>
                         <p>The next step is to test the accelerometer by measuring roll and pitch values for different orientations of the IMU. To do that, I first needed to convert the x, y, and z values into pitch and roll values, which I did by using the code posted on the course website.</p>
                         <p>First, I made measurements when the IMU is flat on the table:</p>
@@ -601,6 +603,7 @@
                         <!-- <iframe width="720" height="450"
                             src="https://www.youtube.com/watch?v=MFT6YPM-oI4">
                             </iframe> -->
+                        <p> </p>
                         <p>We can also see this in the measurements; for example when the IMU is flat, the pitch measurement is around -17 when it should be close to zero, meaning that the gyroscope isn’t very accurate. Even though we have a built-in LPF, there is still some noise which can be reduced by implementing a complementary filter:</p>
                         <img src="assets/img/lab_4/gyr_cf.png" alt="gyr_cf"
                             style="width:608px;height:376px;">
@@ -624,24 +627,25 @@
                         <b>Sample Data.</b>
                         <p>For this section, I first had to figure out how fast I am able to sample new values. To do that, I printed out the time stamps before the data was collected and after the data was collected:</p>
                         <img src="assets/img/lab_4/timing.png" alt="timing"
-                            style="width:691px;height:432px;">
+                            style="width:829px;height:518px;">
                         <p>As we can see, it takes about 2-3 milliseconds. Note that this was after I removed all other print statements to speed up the data collection process.</p>
                         <p>Next, I used bluetooth to collect time-stamped IMU data via Bluetooth and save it into an array:</p>
                         <p>Below is my Arduino code, python code, and the output that it generated in Jupyter:</p>
                         <img src="assets/img/lab_4/get_imu.png" alt="get_imu"
-                            style="width:652px;height:566px;">
+                            style="width:782px;height:679px;">
                         <img src="assets/img/lab_4/gi.png" alt="gi"
-                            style="width:720px;height:398px;">
+                            style="width:864px;height:478px;">
                         <p>Then, I used bluetooth to collect 5s worth of time-stamped IMU data along with ToF data, which I stored in separate arrays. I did this because having the data separated is more convenient for making plots; instead of having to index, I can just refer to whatever I want to plot.</p>
                         <p>Below is my Arduino code, python code, and the output that it generated in Jupyter:</p>
                         <img src="assets/img/lab_4/get_tof_imu.png" alt="get_tof_imu"
-                            style="width:511px;height:709px;">
+                            style="width:767px;height:1064px;">
                         <img src="assets/img/lab_4/gti_0.png" alt="gti_0"
                             style="width:720px;height:398px;">
                         <img src="assets/img/lab_4/gti_1.png" alt="gti_1"
                             style="width:720px;height:398px;">
                         <img src="assets/img/lab_4/gti_2.png" alt="gti_2"
                             style="width:720px;height:398px;">
+                        <p> </p>
                         <b>Cut the Cord!</b>
                         <p>In this lab we are given two kinds of batteries. The first one is 3.7V 850mAh, which we use to power motors via the motor driver. The second one is 3.7V 650mAh, which we use to power the Artemis and other digital electronics. To make the 650mAh battery compatible with the Artemis board, I had to solder the cables from the battery to JST connectors as shown below:</p>
                         <img src="assets/img/lab_4/cut_the_cord.jpg" alt="cut_the_cord"
@@ -655,9 +659,10 @@
                         <!-- <iframe width="720" height="450"
                             src="https://youtube.com/shorts/uTzZVs6Ons4?feature=share">
                             </iframe> -->
+                        <p> </p>
                         <p>Also, while playing with the car, I collected some bluetooth data from the IMU, which is shown in the graphs below:</p>
                         <img src="assets/img/lab_4/get_tof_imu.png" alt="get_tof_imu"
-                            style="width:414px;height:309px;">
+                            style="width:828px;height:618px;">
                         <img src="assets/img/lab_4/d1_plt.png" alt="d1_plt"
                             style="width:613px;height:467px;">
                         <img src="assets/img/lab_4/d2_plt.png" alt="d2_plt"
