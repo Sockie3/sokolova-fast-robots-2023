@@ -751,27 +751,41 @@
                             style="width:750px;height:533px;">
                         <img src="assets/img/lab_5/osc_1.jpg" alt="osc_1"
                             style="width:781px;height:586px;">
-                        <p>As we can see, both motor drivers work properly!</p>
+                        <p>As we can see, we have square waves for both motor drivers, both work properly!</p>
                         <b>Assembling the Car!</b>
-                        <p></p>
-                        <p>Coming soon!</p>
-                        <p></p>
-                        <p>Coming soon!</p>
+                        <p>Once we made sure that our motors can generate PWM signals, it was time to make sure that the wheels can spin forward and backwards. To do that, I first wrote code that would enable both sets of wheels spin forward and backwards:</p>
+                        <img src="assets/img/lab_5/two_wheels_code.png" alt="two_wheels_code"
+                            style="width:445px;height:662px;">
+                        <p>Next, I took a video of two wheels spinning in both directions:</p>
+                        <p> </p>
+                        <p><a href="https://youtu.be/RkiTnHLLx5A">Two Wheels Spinning.</a></p>
+                        <p> </p>
+                        <p>Once I knew that I could make one pair of wheels spin properly, I tried to do the same for all four wheels. Below are the code that I used and a video of the wheels spinning, respectively.</p>
+                        <img src="assets/img/lab_5/four_wheels_code.png" alt="four_wheels_code"
+                            style="width:445px;height:662px;">
+                        <p> </p>
+                        <p><a href="https://youtu.be/RkiTnHLLx5A">Four Wheels Spinning (edit).</a></p>
+                        <p> </p>
                         <p>Next, it was time to assemble the car! I inserted all the components, including the Artemis, the ToF sensors, the IMU and the motor drivers into the car, like so:</p>
                         <img src="assets/img/lab_5/car_wiring_0.jpg" alt="car_wiring_0"
                             style="width:500px;height:540px;">
                         <img src="assets/img/lab_5/car_wiring_1.jpg" alt="car_wiring_1"
                             style="width:500px;height:667px;">
-                        <b>Testing the Car.</b>
-                        <p>The last part of the lab was to test our robot! The first step was to find the lower limit of the PWM duty cycle, or in other words, what’s the smallest signal I can send to my robot and still have the wheels rolling on the ground. I found this value to be…</p>
-                        <p>Next, I tested my robot to see if it can travel in a straight line, meaning that the right and left wheels spin at the same rate. I found there to be a slight difference in the wheel speeds, which was corrected by a X calibration factor. Here is a video of the robot traveling in a straight line after all necessary adjustments:</p>
-                        <p>Coming soon!</p>
-                        <p>Lastly, I took a video where I demonstrated open loop, untethered control of my robot with some turns:</p>
-                        <p>Coming soon!</p>
-                        <p>Here is the code that I wrote to make that happen:</p>
-                        <p>Coming soon!</p>
-                        <p></p>
-                        <p></p>
+                        <b>Controlling the Car.</b>
+                        <p>The last part of the lab was to test our robot! The first step was to find the lower limit of the PWM duty cycle, or in other words, what’s the smallest signal I can send to my robot and still have the wheels rolling on the ground. I found this value to be about X, which is Y% of the duty cycle. Below is a video of the robot moving with this PWM value:</p>
+                        <p>Next, I tested my robot to see if it can travel in a straight line, meaning that the right and left wheels spin at the same rate. I found there to be a slight difference in the wheel speeds: the right wheels turn slightly faster than the left ones, which makes the car move slightly to the left. I corrected this by subtracting X from the right motor. Here is a video of the robot traveling in a straight line after all necessary adjustments:</p>
+                        <p> </p>
+                        <p><a href="https://youtu.be/RkiTnHLLx5A">Robot Going Straight (edit).</a></p>
+                        <p> </p>
+                        <p>Lastly, I had to demonstrate open-loop, untethered control of my robot. To do this, I first had to program the robot to complete a sequence of tasks. Below is my code, with the comments explaining what I wanted the robot to do in each step:</p>
+                        <img src="assets/img/lab_5/open_loop.jpg" alt="open_loop"
+                            style="width:500px;height:667px;">
+                        <p>Below is the video of my robot doing these tasks:</p>
+                        <p> </p>
+                        <p><a href="https://youtu.be/RkiTnHLLx5A">Open-Loop Control (edit).</a></p>
+                        <p> </p>
+                        <p>As we can see, the robot’s movements were consistent with the code!</p>
+                        <p> </p>
                     </div>
                 </div>
                 <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
