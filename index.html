@@ -575,10 +575,10 @@
                             style="width:531px;height:504px;">
                         <p>As we can see above, the values are quite accurate, although there is slight noise. To analyze this noise, I collected some data and plotted it in the time domain and frequency domain as shown below, respectively.</p>
                         <img src="assets/img/lab_4/time_dom.png" alt="time_dom"
-                            style="width:629px;height:456px;">
+                            style="width:608px;height:462px;">
                         <img src="assets/img/lab_4/freq_dom.png" alt="freq_dom"
-                            style="width:604px;height:463px;">
-                        <p>As we can see, we only get a low frequency response and not high frequency noise because there is a built-in LPF in this particular model. This means that noise is reduced and we don’t need an additional low-pass filter.</p>
+                            style="width:589px;height:456px;">
+                        <p>As we can see, we don’t have a lot of noise because there is a built-in LPF in this particular model. This means that noise is reduced and we don’t need an additional low-pass filter.</p>
                         <b>Gyroscope.</b>
                         <p>The next phase was to assess the gyroscope by measuring pitch, roll, and yaw values for different orientations of the IMU. To do that, I first needed to compute the pitch, roll, and yaw values, which I did by using the code posted on the course website.</p>
                         <p>First, I made measurements when the IMU is flat on the table:</p>
@@ -659,19 +659,19 @@
                         <img src="assets/img/lab_4/get_tof_imu.png" alt="get_tof_imu"
                             style="width:414px;height:309px;">
                         <img src="assets/img/lab_4/d1_plt.png" alt="d1_plt"
-                            style="width:426px;height:305px;">
+                            style="width:613px;height:467px;">
                         <img src="assets/img/lab_4/d2_plt.png" alt="d2_plt"
-                            style="width:419px;height:305px;">
+                            style="width:633px;height:463px;">
                         <img src="assets/img/lab_4/ap_plt.png" alt="ap_plt"
-                            style="width:419px;height:305px;">
+                            style="width:695px;height:469px;">
                         <img src="assets/img/lab_4/ar_plt.png" alt="ar_plt"
-                            style="width:422px;height:307px;">
+                            style="width:702px;height:469px;">
                         <img src="assets/img/lab_4/gp_plt.png" alt="gp_plt"
-                            style="width:429px;height:307px;">
+                            style="width:726px;height:469px;">
                         <img src="assets/img/lab_4/gr_plt.png" alt="gr_plt"
-                            style="width:436px;height:307px;">
+                            style="width:690px;height:471px;">
                         <img src="assets/img/lab_4/gy_plt.png" alt="gy_plt"
-                            style="width:437px;height:305px;">
+                            style="width:750px;height:463px;">
                     </div>
                 </div>
                 <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
@@ -721,10 +721,6 @@
                             style="width:626px;height:694px;">
                         <p>Like Ryan Chan, I used pins 4 and A5 for one motor driver and pins A14 and A15 for the other one because all these pins can generate PWM signals.</p>
                         <p>The Artemis and motor drivers should be powered from different batteries. This is because we want to maximize the amount of power given to the drivers and minimize power supply noise to the Artemis.</p>
-                        <img src="assets/img/lab_6/pre_0.png" alt="pre_0"
-                            style="width:569px;height:483px;">
-                        <img src="assets/img/lab_6/pre_1.png" alt="pre_1"
-                            style="width:548px;height:721px;">
                         <div class="flex-grow-1"></div>
                         <b>THE LAB TASKS.</b>
                         <b>Oscilloscope Test.</b>
@@ -813,6 +809,10 @@
                       <p>The primary objective of the prelab is to design a way to facilitate debugging. And so to prepare for this lab, I made a  copy of my ECE 4160 folder, created a new virtual environment, and changed the structure of my code. In previous labs, I had most of my code in cases that I would call in Jupyter and to obtain data, it would be sent to my computer in real time. This was not a very good structure for two reasons. First, when the code is in cases, it can’t be interrupted or terminated before it’s complete. Also, sending bluetooth data in real time is time-consuming and inefficient.</p>
                       <p>To solve the problems above, I decided to change the structure of my code such that most of my code was located in the main loop and I had a few short cases. The main loop is where data is collected and saved into an array without sending it to my computer right away. One of the cases converts the data array into a string and sends it via bluetooth. The other cases are mostly there to change values of global variables. This is a better system because if most of the code is in the main loop, we can make interrupts, and sending data over after it’s already been collected is quicker and more efficient.</p>
                       <p>Here is the code that I wrote for the prelab:</p>
+                      <img src="assets/img/lab_6/pre_0.png" alt="pre_0"
+                          style="width:569px;height:483px;">
+                      <img src="assets/img/lab_6/pre_1.png" alt="pre_1"
+                          style="width:548px;height:721px;">
                       <div class="flex-grow-1"></div>
                       <b>THE LAB TASKS.</b>
                       <p>Coming soon!</p>
