@@ -760,16 +760,16 @@
                         <b>Assembling the Car!</b>
                         <p>Once we made sure that our motors can generate PWM signals, it was time to make sure that the wheels can spin forward and backwards. To do that, I first wrote code that would enable one set of wheels spin forward and backwards:</p>
                         <img src="assets/img/lab_5/two_wheels_code.png" alt="two_wheels_code"
-                            style="width:445px;height:662px;">
+                            style="width:475px;height:800px;">
                         <p>Next, I took a video of two wheels spinning in both directions:</p>
                         <p> </p>
                         <p><a href="https://youtu.be/RkiTnHLLx5A">Two Wheels Spinning.</a></p>
                         <p> </p>
-                        <p>Once I knew that I could make one pair of wheels spin properly, I tried to do the same for all four wheels. Below are the code that I used and a video of the wheels spinning, respectively.</p>
+                        <p>Once I knew that I could make one pair of wheels spin properly, I tried to do the same for all four wheels while also using the 850mAh battery to power the motor drivers. Below are the code that I used and a video of the wheels spinning, respectively.</p>
                         <img src="assets/img/lab_5/four_wheels_code.png" alt="four_wheels_code"
-                            style="width:445px;height:662px;">
+                            style="width:475px;height:800px;">
                         <p> </p>
-                        <p><a href="https://youtu.be/RkiTnHLLx5A">Four Wheels Spinning (edit).</a></p>
+                        <p><a href="https://youtube.com/shorts/R3ZxyOaoIcY?feature=share">Four Wheels Spinning.</a></p>
                         <p> </p>
                         <p>Next, it was time to assemble the car! I inserted all the components, including the Artemis, the ToF sensors, the IMU and the motor drivers into the car, like so:</p>
                         <img src="assets/img/lab_5/car_wiring_0.jpg" alt="car_wiring_0"
@@ -777,8 +777,11 @@
                         <img src="assets/img/lab_5/car_wiring_1.jpg" alt="car_wiring_1"
                             style="width:500px;height:667px;">
                         <b>Controlling the Car.</b>
-                        <p>The last part of the lab was to test our robot! The first step was to find the lower limit of the PWM duty cycle, or in other words, what’s the smallest signal I can send to my robot and still have the wheels rolling on the ground. I found this value to be about X, which is Y% of the duty cycle. Below is a video of the robot moving with this PWM value:</p>
-                        <p>Next, I tested my robot to see if it can travel in a straight line, meaning that the right and left wheels spin at the same rate. I found there to be a slight difference in the wheel speeds: the right wheels turn slightly faster than the left ones, which makes the car move slightly to the left. I corrected this by subtracting X from the right motor. Here is a video of the robot traveling in a straight line after all necessary adjustments:</p>
+                        <p>The last part of the lab was to test our robot! The first step was to find the lower limit of the PWM duty cycle, or in other words, what’s the smallest signal I can send to my robot and still have the wheels rolling on the ground. I found this value to be about 45, which is about 17.65% of the duty cycle. Below is a video of the robot moving with this PWM value:</p>
+                        <p> </p>
+                        <p><a href="https://youtube.com/shorts/Yot3emd_Vrs">Low PWM Limit.</a></p>
+                        <p> </p>
+                        <p>Next, I tested my robot to see if it can travel in a straight line, meaning that the right and left wheels spin at the same rate. I found there to be a slight difference in the wheel speeds: the right wheels turn slightly faster than the left ones, which makes the car move slightly to the left. I corrected this by adding a calibration factor of +5 to the PWM of the left motor. Here is a video of the robot traveling in a straight line after all necessary adjustments:</p>
                         <p> </p>
                         <p><a href="https://youtu.be/RkiTnHLLx5A">Robot Going Straight (edit).</a></p>
                         <p> </p>
@@ -787,7 +790,7 @@
                             style="width:500px;height:667px;">
                         <p>Below is the video of my robot doing these tasks:</p>
                         <p> </p>
-                        <p><a href="https://youtu.be/RkiTnHLLx5A">Open-Loop Control (edit).</a></p>
+                        <p><a href="https://youtu.be/RkiTnHLLx5A">Open-Loop, Untethered Control (edit).</a></p>
                         <p> </p>
                         <p>As we can see, the robot’s movements were consistent with the code!</p>
                         <p> </p>
@@ -811,7 +814,7 @@
                   <div class="flex-grow-1">
                       <h3 class="mb-0">Closed-Loop Control (PID).</h3>
                       <div class="subheading mb-3">Introduction.</div>
-                      <p>The goal of Lab 6 was to gain experience with PID or closed-loop control. The advantage of closed-loop control over open-loop control is that we are giving our robot the ability to respond to certain stimuli instead of allowing it to drive around in a predetermined way. For this lab, we had to choose between two possible tasks, Task A and Task B. Task A focuses on position control and Task B focuses on orientation control. I chose to complete Task A.</p>
+                      <p>The goal of Lab 6 was to integrate PID closed-loop control, which helps keep the robot motion consistent when the environment or dynamics change. For this lab, we had to choose between two tasks: position control and orientation control; I chose to do position control.</p>
                       <b>Materials:</b>
                       <ul>
                           <li>1 x R/C stunt car</li>
@@ -834,8 +837,8 @@
                   <div class="flex-grow-1">
                       <div class="subheading mb-3">Procedure.</div>
                       <b>THE PRELAB.</b>
-                      <p>The primary objective of the prelab is to design a way to facilitate debugging. And so to prepare for this lab, I made a  copy of my ECE 4160 folder, created a new virtual environment, and changed the structure of my code. In previous labs, I had most of my code in cases that I would call in Jupyter and to obtain data, it would be sent to my computer in real time. This was not a very good structure for two reasons. First, when the code is in cases, it can’t be interrupted or terminated before it’s complete. Also, sending bluetooth data in real time is time-consuming and inefficient.</p>
-                      <p>To solve the problems above, I decided to change the structure of my code such that most of my code was located in the main loop and I had a few short cases. The main loop is where data is collected and saved into an array without sending it to my computer right away. One of the cases converts the data array into a string and sends it via bluetooth. The other cases are mostly there to change values of global variables. This is a better system because if most of the code is in the main loop, we can make interrupts, and sending data over after it’s already been collected is quicker and more efficient.</p>
+                      <p>The primary objective of the prelab is to design a way to facilitate debugging. And so to prepare for this lab, I made a  copy of my ECE 4160 folder, created a new virtual environment, and changed the structure of my code. In previous labs, I had most of my code in cases that I would call in Jupyter and to obtain data, it would be sent to my computer in real time. This was not a very good structure because sending bluetooth data in real time is time-consuming and inefficient.</p>
+                      <p>To solve the problems above, I decided to change the structure of my code. In my new code, I am essentially creating a separation of tasks; I collect the data in the main loop using the Artemis while the robot is performing tasks and I have a separate case to send the data over to my computer once the stunts are complete. I also have a few short cases to change some global variables as needed.</p>
                       <p>Here is the code that I wrote for the prelab:</p>
                       <img src="assets/img/lab_6/pre_0.png" alt="pre_0"
                           style="width:569px;height:483px;">
