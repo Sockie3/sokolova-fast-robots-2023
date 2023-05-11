@@ -1061,10 +1061,10 @@
                         <p>For this lab we did not have a pre-lab.</p>
                         <div class="flex-grow-1"></div>
                         <b>THE LAB TASKS.</b>
-                        <p>Coming soon!</p>
-                        <p></p>
-                        <p></p>
-                        <p></p>
+                        <p>The first step was to create code that would allow the stunt to happen. For me, this involved reusing my extrapolation code from Lab 7 to estimate the robot’s distance away from the wall so that the robot knew when to do the flip.</p>
+                        <p>My Lab 8 code involved two parts. The first part executed when the myICM.dataReady() value was false and the second part executed when the myICM.dataReady() value was true.</p>
+                        <p>In the first part, I estimated the distance away from the wall using the extrapolation code and distances from the last two rounds when myICM.dataReady() was true. If the previous distance values weren’t available yet, I just assumed that the initial slope of the Distance vs Time plot is zero and used that to extrapolate. Below is an image of the Arduino code:</p>
+                        <p>In the second part of my code, I collect the TOF data and find my current and previous distance measurements so I could use them the next time I need to extrapolate. Below is an image of the Arduino code:</p>
                         <p></p>
                         <p></p>
                         <p></p>
