@@ -838,6 +838,7 @@
                       <ul>
                           <li>https://klarinetkat.github.io/ECE4160/#ece4160intro</li>
                           <li>https://cwf54.github.io/#interests</li>
+                          <li>https://anyafp.github.io/ece4960/labs/lab6/</li>
                       </ul>
                   </div>
               </div>
@@ -943,6 +944,7 @@
                     <ul>
                         <li>https://klarinetkat.github.io/ECE4160/#ece4160intro</li>
                         <li>https://cwf54.github.io/#interests</li>
+                        <li>https://anyafp.github.io/ece4960/labs/lab7/</li>
                     </ul>
                 </div>
             </div>
@@ -950,14 +952,24 @@
                 <div class="flex-grow-1">
                     <div class="subheading mb-3">Procedure.</div>
                     <b>THE PRELAB.</b>
-                    <p>Coming soon!</p>
+                    <p>For this lab we did not have a pre-lab.</p>
                     <div class="flex-grow-1"></div>
                     <b>THE LAB TASKS.</b>
+                    <b>Estimating Drag and Momentum.</b>
+                    <p>The first part of the lab was to estimate drag and momentum for the A and B matrices using the equations below:</p>
+                    <p>We could find these values by using a step response. This involves driving the robot towards the wall while taking TOF data and PWM data until it reaches steady state. To do that, I programmed the robot to drive towards a wall for 1.2 seconds and stop before it hits the wall to avoid damaging the toy car. The reason why I chose 1.2 seconds is because after several trials I determined that this is the time that it took my robot to come close to steady state. Below is my Arduino code:</p>
+                    <p>And here is a video of my robot while I was taking the measurement:</p>
+                    <p>After I took my measurements, I processed the data in Jupyter to obtain a Distance vs Time plot, a Velocity vs Time plot, and a PWM vs Time plot. The three plots along with the code that I used to create them are shown below:</p>
+                    <p>Note that practically we aren’t actually able to achieve steady state because there’s a limit to how far we could place the robot away from the wall while still obtaining TOF data, which is why the Velocity vs. Time plot has a sharp trough.</p>
+                    <p>Once I had my plots, I could use my Velocity vs Time plot to approximate my drag and momentum values. To do that, I annotated the Velocity vs Time plot as shown below:</p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <b>The Kalman Filter.</b>
                     <p>Coming soon!</p>
                     <p></p>
-                    <p></p>
-                    <p></p>
-                    <p></p>
+                    <b>Extrapolation.</b>
+                    <p>Coming soon!</p>
                     <p></p>
                     <p></p>
                 </div>
@@ -1003,7 +1015,7 @@
                     <div class="flex-grow-1">
                         <div class="subheading mb-3">Procedure.</div>
                         <b>THE PRELAB.</b>
-                        <p>Coming soon!</p>
+                        <p>For this lab we did not have a pre-lab.</p>
                         <div class="flex-grow-1"></div>
                         <b>THE LAB TASKS.</b>
                         <p>Coming soon!</p>
