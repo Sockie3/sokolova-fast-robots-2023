@@ -1010,9 +1010,37 @@
                         style="width:600px;height:450px;">
                     <div class="flex-grow-1"></div>
                     <p> </p>
-                    <p></p>
-                    <p></p>
-                    <p></p>
+                    <p>From this plot, we can approximate the steady state velocity to be 1800 mm/s. The 90% rise time is 90% of the steady state velocity, which is the velocity that the car reaches once it fully accelerates. To find 90% rise time, I calculated 90% of 1800 mm/s, which turned out to be 1620 mm/s, and approximated how long it takes to get to that velocity. As seen in the above plot, I found my 90% rise time to be around 1s.</p>
+                    <p>Finally, I had all the necessary values to calculate the values for drag and momentum, which I can use to find my A and B matrices. Below are my calculations:</p>
+                    <p> </p>
+                    <img src="assets/img/lab_7/calculations.png" alt="calculations"
+                        style="width:700px;height:200px;">
+                    <div class="flex-grow-1"></div>
+                    <p> </p>
+                    <p>My final A and B matrices are shown below:</p>
+                    <p> </p>
+                    <img src="assets/img/lab_7/a_b_matrices.png" alt="a_b_matrices"
+                        style="width:550px;height:350px;">
+                    <div class="flex-grow-1"></div>
+                    <p> </p>
+                    <p>For the C matrix, I used the one given in lecture:</p>
+                    <p> </p>
+                    <img src="assets/img/lab_7/a_b_matrices.png" alt="a_b_matrices"
+                        style="width:300px;height:100px;">
+                    <div class="flex-grow-1"></div>
+                    <p> </p>
+                    <p>Lastly, I had to determine the process noise and sensor noise covariance matrices illustrated below:</p>
+                    <p> </p>
+                    <img src="assets/img/lab_7/noise_matrices.png" alt="noise_matrices"
+                        style="width:300px;height:100px;">
+                    <div class="flex-grow-1"></div>
+                    <p> </p>
+                    <p>To do that, I had to choose three sigma values. I started off with the following values as an estimate:</p>
+                    <p> </p>
+                    <img src="assets/img/lab_7/sigma_vals.png" alt="sigma_vals"
+                        style="width:1000px;height:200px;">
+                    <div class="flex-grow-1"></div>
+                    <p> </p>
                     <b>The Kalman Filter.</b>
                     <p>Coming soon!</p>
                     <p></p>
