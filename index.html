@@ -1163,18 +1163,54 @@
                         <p>The first step was to create code that would allow the stunt to happen. For me, this involved reusing my extrapolation code from Lab 7 to estimate the robot’s distance away from the wall so that the robot knew when to do the flip.</p>
                         <p>As I already mentioned in my Lab 7 report, my extrapolation code consisted of two parts: one for when the TOF sensor data is ready and one for when it isn’t. In the first section, I continuously update two variables as I obtain new data: distance_prev, the distance measurement from the previous iteration, and distance_curr, the new measured distance. In the second section, I use distance_prev and distance_curr to compute the estimated distance, distance_est. I also update distance_prev and distance_curr to keep extrapolating until new data becomes available.</p>
                         <p>For this lab, I just took my extrapolation code from Lab 7 and added some if-statements that determine when the robot should flip. I essentially added the same code to both parts of my Lab 7 code because the general idea is the same: if the robot is more than 500 mm away from the wall, it keeps going forward; if the robot is less than or at 500 mm away from the wall, it suddenly switches direction to induce a flip and keeps going backward for three seconds. The only difference is that in the first section, we look at distance_curr, and in the second section, we look at distance_est. Below is my code for both sections:</p>
-                        <p></p>
+                        <p>Code for the first section:</p>
+                        <p> </p>
+                        <img src="assets/img/lab_8/pt_1.png" alt="pt_1"
+                            style="width:850px;height:1390px;">
+                        <div class="flex-grow-1"></div>
+                        <p> </p>
+                        <p>Code for the second section:</p>
+                        <p> </p>
+                        <img src="assets/img/lab_8/pt_2.png" alt="pt_2"
+                            style="width:750px;height:1500px;">
+                        <div class="flex-grow-1"></div>
+                        <p> </p>
                         <b>Running Into Issues and Debugging.</b>
+                        <p>This lab was particularly challenging because I kept running into issues. To deal with these issues, I inserted a lot of print statements into the code to make sure that the coding part was working correctly. I kept debugging until the software worked as it should. These print statements looked something like this in the serial monitor:</p>
+                        <p> </p>
+                        <img src="assets/img/lab_8/serial_one.png" alt="serial_one"
+                            style="width:1100px;height:1500px;">
+                        <div class="flex-grow-1"></div>
+                        <p> </p>
+                        <p>I also just ran the code with my robot connected to the computer so that I could look at the serial monitor. Once issue that I kept running into was “data underflow”; this would come and go randomly without me changing anything about my code. This hasn’t happened in previous labs. The serial monitor looked like this:</p>
+                        <p> </p>
+                        <img src="assets/img/lab_8/underflow.png" alt="underflow"
+                            style="width:550px;height:650px;">
+                        <div class="flex-grow-1"></div>
+                        <p> </p>
+                        <p>The last and most important issue that I ran into was that the robot was only working “properly” when it was connected to the computer. I tried to debug this by testing out other factors; for instance, I checked that the TOF sensor doesn't read the floor and I tried to charge the Artemis to name a few. However, I never found the true code of this issue. My best guess is faulty and unpredictable hardware.</p>
+                        <b>Trials.</b>
+                        <p>To attempt to make the robot perform the desired stunt, I just kept trying to repeatedly perform more trials. Below are several of the trials which I managed to record:</p>
                         <p>Coming soon!</p>
-                        <b>TBD.</b>
+                        <p>For the last trial, I also made a Distance vs Time plot:</p>
+                        <<p> </p>
+                        <img src="assets/img/lab_8/lab_8_dis.png" alt="lab_8_dis"
+                            style="width:950px;height:1275px;">
+                        <div class="flex-grow-1"></div>
+                        <p> </p>
+                        <p>As we can see, the TOF data was not being read for some reason, which is why we only see the extrapolated distance being plotted. This relates to the last issue that was mentioned in the previous section. To prove that my code still works as it should, I recorded another trial where I kept the robot connected to the computer and just brought my box towards it. Below is a video recording of the trial and the resulting Distance vs Time plot:</p>
                         <p>Coming soon!</p>
-                        <p></p>
+                        <<p> </p>
+                        <img src="assets/img/lab_8/lab_8_conn.png" alt="lab_8_conn"
+                            style="width:950px;height:1340px;">
+                        <div class="flex-grow-1"></div>
+                        <p> </p>
                     </div>
                 </div>
                 <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                     <div class="flex-grow-1">
                         <div class="subheading mb-3">Conclusion.</div>
-                        <p>In Lab 8, I was able to display the current capabilities of my robot by having it perform a stunt. In the end, my robot was able to quickly speed towards a wall, do a flip, and rush towards its original starting point. This lab is significant because by having the robot perform this trick I demonstrated that everything that I have done in the previous labs has been a success.
+                        <p>In Lab 8, I was able to display the current capabilities of my robot by having it perform a stunt. However, in the end, my robot was unable to quickly speed towards a wall, do a flip, and rush towards its original starting point. This is expected because the hardware is very unpredictable and it would have taken many more hours to see the robot flip. My theory is that the robot didn’t flip because it just didn’t react to the wall fast enough. Alternatively, something went wrong when I disconnected the robot from the computer. Because I was short on time, I was forced to move on from this lab. Even though my robot didn’t flip, I still consider this lab a success because even though the hardware didn’t work, my software behaved mostly as I expected it to and I learned a lot of new things.
                         </p>
                       </div>
                    </div>
