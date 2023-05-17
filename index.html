@@ -1038,16 +1038,81 @@
                     <p>To do that, I had to choose three sigma values. I started off with the following values as an estimate:</p>
                     <p> </p>
                     <img src="assets/img/lab_7/sigma_vals.png" alt="sigma_vals"
-                        style="width:575px;height:75px;">
+                        style="width:375px;height:75px;">
                     <div class="flex-grow-1"></div>
                     <p> </p>
                     <b>The Kalman Filter.</b>
                     <p>Coming soon!</p>
-                    <p></p>
+                    <p>Once I determined the A and B matrices, it was time for me to implement the Kalman filter. Below is the Jupyter code with all the necessary matrices and a modified version of the Kalman Filter function given in the lab instructions:</p>
+                    <p> </p>
+                    <img src="assets/img/lab_7/kf_0.png" alt="kf_0"
+                        style="width:1200px;height:1300px;">
+                    <div class="flex-grow-1"></div>
+                    <p> </p>
+                    <p>Below is the code where I use the Kalman Filter function on my data:</p>
+                    <p> </p>
+                    <img src="assets/img/lab_7/kf_1.png" alt="kf_1"
+                        style="width:1000px;height:425px;">
+                    <div class="flex-grow-1"></div>
+                    <p> </p>
+                    <p>For this part of the lab we needed to perform a sanity check on data taken during Lab 6 to make sure that the Kalman Filter is working properly. Because during Lab 6 I used a broken TOF sensor, I had to take new data and perform the sanity check on that. I just re-used my P control code from lab 6 to take new data. Below is a screenshot of my code and a video recording of the robot:</p>
+                    <p> </p>
+                    <img src="assets/img/lab_7/sanity_check.png" alt="sanity_check"
+                        style="width:600px;height:1400px;">
+                    <div class="flex-grow-1"></div>
+                    <p> </p>
+                    <p>Once I had my data, I was able to plot the (measured) Distance vs Time plot, the (measured) Velocity vs Time plot, the PWM vs Time plot, and the Kalman Filter results. Below are all the plots in the listed order:</p>
+                    <p> </p>
+                    <img src="assets/img/lab_7/kf_2.png" alt="kf_2"
+                        style="width:950px;height:250px;">
+                    <div class="flex-grow-1"></div>
+                    <p> </p>
                     <b>Extrapolation.</b>
-                    <p></p>
-                    <p></p>
-                    <p></p>
+                    <p>The last part of this lab was to choose between implementing the Kalman Filter on the robot and writing an extrapolation algorithm. Because I was short on time, I decided to create an extrapolation algorithm that would be useful for Lab 8.</p>
+                    <p>To create this algorithm, I needed to subdivide my code into two parts.  The first part of my code deals with the case when the TOF sensor data is available. In that section, I continuously update two variables as I obtain new data: distance_prev, the distance measurement from the previous iteration, and distance_curr, the new measured distance. These values would be used for the extrapolation calculation. Here is the code for this part:</p>
+                    <p> </p>
+                    <img src="assets/img/lab_7/pt_1.png" alt="pt_1"
+                        style="width:700px;height:750px;">
+                    <div class="flex-grow-1"></div>
+                    <p> </p>
+                    <p>The second part of my code deals with the case when data is not available. There, I use distance_prev and distance_curr to calculate the estimated distance value, distance_est. I also update distance_prev and distance_curr by setting distance_prev to distance_curr and distance_curr to distance_est so that I can keep extrapolating until the TOF data is available again.  Here is the code for this part:</p>
+                    <p> </p>
+                    <img src="assets/img/lab_7/pt_2.png" alt="pt_2"
+                        style="width:525px;height:705px;">
+                    <div class="flex-grow-1"></div>
+                    <p> </p>
+                    <p>I also had to create another case that would send the extrapolated distance values because there would be a lot more of them than the measured data values. The Arduino code for that is shown below:</p>
+                    <p> </p>
+                    <img src="assets/img/lab_7/send_ext.png" alt="send_ext"
+                        style="width:1120px;height:430px;">
+                    <div class="flex-grow-1"></div>
+                    <p> </p>
+                    <p>To test my extrapolation code, I used the same data that I did for the Sanity Check part when implementing the Kalman Filter. Below I have a Distance vs Time plot that shows the overlapping measured distance and estimated distance values as well as the code I used to obtain the graph:</p>
+                    <p> </p>
+                    <img src="assets/img/lab_7/both_dis_plt.png" alt="both_dis_plt"
+                        style="width:950px;height:1300px;">
+                    <div class="flex-grow-1"></div>
+                    <p> </p>
+                    <p>I also plotted the measured distance and the estimated distance of two separate plots. Below are screenshots of the Measured Distance vs Time plot and Extrapolated Distance vs Time plot, in that order:</p>
+                    <p> </p>
+                    <img src="assets/img/lab_7/dis_meas_plt.png" alt="dis_meas_plt"
+                        style="width:950px;height:1250px;">
+                    <div class="flex-grow-1"></div>
+                    <p> </p>
+                    <img src="assets/img/lab_7/dis_est_plt.png" alt="dis_est_plt"
+                        style="width:950px;height:1250px;">
+                    <div class="flex-grow-1"></div>
+                    <p> </p>
+                    <p>Lastly, I plotted the Velocity vs Time plot and the PWM vs Time plot for the measured data. Both are illustrated below, in that order:</p>
+                    <p> </p>
+                    <img src="assets/img/lab_7/meas_vel_plt.png" alt="meas_vel_plt"
+                        style="width:950px;height:1200px;">
+                    <div class="flex-grow-1"></div>
+                    <p> </p>
+                    <img src="assets/img/lab_7/meas_pwm_plt.png" alt="meas_pwm_plt"
+                        style="width:900px;height:900px;">
+                    <div class="flex-grow-1"></div>
+                    <p> </p>
                 </div>
             </div>
             <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
@@ -1094,12 +1159,15 @@
                         <p>For this lab we did not have a pre-lab.</p>
                         <div class="flex-grow-1"></div>
                         <b>THE LAB TASKS.</b>
+                        <b>Implementing the Stunt Code.</b>
                         <p>The first step was to create code that would allow the stunt to happen. For me, this involved reusing my extrapolation code from Lab 7 to estimate the robot’s distance away from the wall so that the robot knew when to do the flip.</p>
-                        <p>My Lab 8 code involved two parts. The first part executed when the myICM.dataReady() value was false and the second part executed when the myICM.dataReady() value was true.</p>
-                        <p>In the first part, I estimated the distance away from the wall using the extrapolation code and distances from the last two rounds when myICM.dataReady() was true. If the previous distance values weren’t available yet, I just assumed that the initial slope of the Distance vs Time plot is zero and used that to extrapolate. Below is an image of the Arduino code:</p>
-                        <p>In the second part of my code, I collect the TOF data and find my current and previous distance measurements so I could use them the next time I need to extrapolate. Below is an image of the Arduino code:</p>
+                        <p>As I already mentioned in my Lab 7 report, my extrapolation code consisted of two parts: one for when the TOF sensor data is ready and one for when it isn’t. In the first section, I continuously update two variables as I obtain new data: distance_prev, the distance measurement from the previous iteration, and distance_curr, the new measured distance. In the second section, I use distance_prev and distance_curr to compute the estimated distance, distance_est. I also update distance_prev and distance_curr to keep extrapolating until new data becomes available.</p>
+                        <p>For this lab, I just took my extrapolation code from Lab 7 and added some if-statements that determine when the robot should flip. I essentially added the same code to both parts of my Lab 7 code because the general idea is the same: if the robot is more than 500 mm away from the wall, it keeps going forward; if the robot is less than or at 500 mm away from the wall, it suddenly switches direction to induce a flip and keeps going backward for three seconds. The only difference is that in the first section, we look at distance_curr, and in the second section, we look at distance_est. Below is my code for both sections:</p>
                         <p></p>
-                        <p></p>
+                        <b>Running Into Issues and Debugging.</b>
+                        <p>Coming soon!</p>
+                        <b>TBD.</b>
+                        <p>Coming soon!</p>
                         <p></p>
                     </div>
                 </div>
@@ -1175,17 +1243,7 @@
                         <h3 class="mb-0">Localization (Simulation).</h3>
                         <div class="subheading mb-3">Introduction.</div>
                         <p>The purpose of Lab 10 is to implement grid localization using the Bayes filter. We did this by running a simulation on Jupyter Notebook because using a simulation would make debugging easier in future labs when we have to implement the Bayes filter on our actual robot. This is because a simulation is a more stable environment than the physical world, meaning that it’s easier to tell if a potential problem is caused by software or hardware.</p>
-                        <b>Materials:</b>
-                        <ul>
-                          <li>1 x R/C stunt car</li>
-                          <li>1 x SparkFun RedBoard Artemis Nano</li>
-                          <li>1 x USB cable</li>
-                          <li>2 x Li-Po 3.7V 650mAh (or more) battery</li>
-                          <li>2 x Dual motor drivers</li>
-                          <li>2 x 4m ToF sensor</li>
-                          <li>1 x 9DOF IMU sensor</li>
-                          <li>2 x Qwiic connector</li>
-                        </ul>
+                        <p> </p>
                         <b>Resources:</b>
                         <ul>
                             <li>https://anyafp.github.io/ece4960/labs/lab10/</li>
