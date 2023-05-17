@@ -970,7 +970,7 @@
                     <p> </p>
                     <p>And here is a video of my robot while I was taking the measurement:</p>
                     <p> </p>
-                    <p><a href="https://youtube.com/shorts/1Oj7quaQyc4?feature=share">Taking Measurements for Matrices.</a></p>
+                    <p><a href="https://youtube.com/shorts/1Oj7quaQyc4?feature=share">Taking Measurement for Matrices.</a></p>
                     <p> </p>
                     <p>After I took my measurements, I processed the data in Jupyter to obtain a Distance vs Time plot, a Velocity vs Time plot, and a PWM vs Time plot. The three plots along with the code that I used to create them are shown below:</p>
                     <p> </p>
@@ -1020,7 +1020,7 @@
                     <p>My final A and B matrices are shown below:</p>
                     <p> </p>
                     <img src="assets/img/lab_7/a_b_matrices.png" alt="a_b_matrices"
-                        style="width:495px;height:315px;">
+                        style="width:446px;height:284px;">
                     <div class="flex-grow-1"></div>
                     <p> </p>
                     <p>For the C matrix, I used the one given in lecture:</p>
@@ -1032,7 +1032,7 @@
                     <p>Lastly, I had to determine the process noise and sensor noise covariance matrices illustrated below:</p>
                     <p> </p>
                     <img src="assets/img/lab_7/noise_matrices.png" alt="noise_matrices"
-                        style="width:675px;height:260px;">
+                        style="width:500px;height:193px;">
                     <div class="flex-grow-1"></div>
                     <p> </p>
                     <p>To do that, I had to choose three sigma values. I started off with the following values as an estimate:</p>
@@ -1046,25 +1046,27 @@
                     <p>Once I determined the A and B matrices, it was time for me to implement the Kalman filter. Below is the Jupyter code with all the necessary matrices and a modified version of the Kalman Filter function given in the lab instructions:</p>
                     <p> </p>
                     <img src="assets/img/lab_7/kf_0.png" alt="kf_0"
-                        style="width:1200px;height:1300px;">
+                        style="width:600px;height:650px;">
                     <div class="flex-grow-1"></div>
                     <p> </p>
                     <p>Below is the code where I use the Kalman Filter function on my data:</p>
                     <p> </p>
                     <img src="assets/img/lab_7/kf_1.png" alt="kf_1"
-                        style="width:1000px;height:425px;">
+                        style="width:500px;height:213px;">
                     <div class="flex-grow-1"></div>
                     <p> </p>
                     <p>For this part of the lab we needed to perform a sanity check on data taken during Lab 6 to make sure that the Kalman Filter is working properly. Because during Lab 6 I used a broken TOF sensor, I had to take new data and perform the sanity check on that. I just re-used my P control code from lab 6 to take new data. Below is a screenshot of my code and a video recording of the robot:</p>
                     <p> </p>
                     <img src="assets/img/lab_7/sanity_check.png" alt="sanity_check"
-                        style="width:600px;height:1400px;">
+                        style="width:300px;height:700px;">
                     <div class="flex-grow-1"></div>
+                    <p> </p>
+                    <p><a href="https://youtube.com/shorts/wKpg0uQkqWk?feature=share">Taking Measurement for Sanity Check.</a></p>
                     <p> </p>
                     <p>Once I had my data, I was able to plot the (measured) Distance vs Time plot, the (measured) Velocity vs Time plot, the PWM vs Time plot, and the Kalman Filter results. Below are all the plots in the listed order:</p>
                     <p> </p>
                     <img src="assets/img/lab_7/kf_2.png" alt="kf_2"
-                        style="width:950px;height:250px;">
+                        style="width:475px;height:625px;">
                     <div class="flex-grow-1"></div>
                     <p> </p>
                     <b>Extrapolation.</b>
@@ -1084,33 +1086,33 @@
                     <p>I also had to create another case that would send the extrapolated distance values because there would be a lot more of them than the measured data values. The Arduino code for that is shown below:</p>
                     <p> </p>
                     <img src="assets/img/lab_7/send_ext.png" alt="send_ext"
-                        style="width:1120px;height:430px;">
+                        style="width:560px;height:215px;">
                     <div class="flex-grow-1"></div>
                     <p> </p>
                     <p>To test my extrapolation code, I used the same data that I did for the Sanity Check part when implementing the Kalman Filter. Below I have a Distance vs Time plot that shows the overlapping measured distance and estimated distance values as well as the code I used to obtain the graph:</p>
                     <p> </p>
                     <img src="assets/img/lab_7/both_dis_plt.png" alt="both_dis_plt"
-                        style="width:950px;height:1300px;">
+                        style="width:475px;height:650px;">
                     <div class="flex-grow-1"></div>
                     <p> </p>
                     <p>I also plotted the measured distance and the estimated distance of two separate plots. Below are screenshots of the Measured Distance vs Time plot and Extrapolated Distance vs Time plot, in that order:</p>
                     <p> </p>
                     <img src="assets/img/lab_7/dis_meas_plt.png" alt="dis_meas_plt"
-                        style="width:950px;height:1250px;">
+                        style="width:475px;height:625px;">
                     <div class="flex-grow-1"></div>
                     <p> </p>
                     <img src="assets/img/lab_7/dis_est_plt.png" alt="dis_est_plt"
-                        style="width:950px;height:1250px;">
+                        style="width:475px;height:625px;">
                     <div class="flex-grow-1"></div>
                     <p> </p>
                     <p>Lastly, I plotted the Velocity vs Time plot and the PWM vs Time plot for the measured data. Both are illustrated below, in that order:</p>
                     <p> </p>
                     <img src="assets/img/lab_7/meas_vel_plt.png" alt="meas_vel_plt"
-                        style="width:950px;height:1200px;">
+                        style="width:475px;height:600px;">
                     <div class="flex-grow-1"></div>
                     <p> </p>
                     <img src="assets/img/lab_7/meas_pwm_plt.png" alt="meas_pwm_plt"
-                        style="width:900px;height:900px;">
+                        style="width:450px;height:450px;">
                     <div class="flex-grow-1"></div>
                     <p> </p>
                 </div>
@@ -1166,20 +1168,20 @@
                         <p>Code for the first section:</p>
                         <p> </p>
                         <img src="assets/img/lab_8/pt_1.png" alt="pt_1"
-                            style="width:850px;height:1390px;">
+                            style="width:425px;height:695px;">
                         <div class="flex-grow-1"></div>
                         <p> </p>
                         <p>Code for the second section:</p>
                         <p> </p>
                         <img src="assets/img/lab_8/pt_2.png" alt="pt_2"
-                            style="width:750px;height:1500px;">
+                            style="width:375px;height:750px;">
                         <div class="flex-grow-1"></div>
                         <p> </p>
                         <b>Running Into Issues and Debugging.</b>
                         <p>This lab was particularly challenging because I kept running into issues. To deal with these issues, I inserted a lot of print statements into the code to make sure that the coding part was working correctly. I kept debugging until the software worked as it should. These print statements looked something like this in the serial monitor:</p>
                         <p> </p>
                         <img src="assets/img/lab_8/serial_one.png" alt="serial_one"
-                            style="width:1100px;height:1500px;">
+                            style="width:550px;height:750px;">
                         <div class="flex-grow-1"></div>
                         <p> </p>
                         <p>I also just ran the code with my robot connected to the computer so that I could look at the serial monitor. Once issue that I kept running into was “data underflow”; this would come and go randomly without me changing anything about my code. This hasn’t happened in previous labs. The serial monitor looked like this:</p>
@@ -1195,14 +1197,14 @@
                         <p>For the last trial, I also made a Distance vs Time plot:</p>
                         <<p> </p>
                         <img src="assets/img/lab_8/lab_8_dis.png" alt="lab_8_dis"
-                            style="width:950px;height:1275px;">
+                            style="width:475px;height:638px;">
                         <div class="flex-grow-1"></div>
                         <p> </p>
                         <p>As we can see, the TOF data was not being read for some reason, which is why we only see the extrapolated distance being plotted. This relates to the last issue that was mentioned in the previous section. To prove that my code still works as it should, I recorded another trial where I kept the robot connected to the computer and just brought my box towards it. Below is a video recording of the trial and the resulting Distance vs Time plot:</p>
                         <p>Coming soon!</p>
                         <<p> </p>
                         <img src="assets/img/lab_8/lab_8_conn.png" alt="lab_8_conn"
-                            style="width:950px;height:1340px;">
+                            style="width:475px;height:670px;">
                         <div class="flex-grow-1"></div>
                         <p> </p>
                     </div>
