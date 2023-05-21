@@ -1042,7 +1042,6 @@
                     <div class="flex-grow-1"></div>
                     <p> </p>
                     <b>The Kalman Filter.</b>
-                    <p>Coming soon!</p>
                     <p>Once I determined the A and B matrices, it was time for me to implement the Kalman filter. Below is the Jupyter code with all the necessary matrices and a modified version of the Kalman Filter function given in the lab instructions:</p>
                     <p> </p>
                     <img src="assets/img/lab_7/kf_0.png" alt="kf_0"
@@ -1436,22 +1435,14 @@
                       <div class="flex-grow-1">
                           <h3 class="mb-0">Planning and Execution.</h3>
                           <div class="subheading mb-3">Introduction.</div>
-                          <p>Coming Soon!</p>
+                          <p>The purpose of Lab 12 is to demonstrate that our robot is able to quickly and accurately navigate through a set of waypoints in a certain environment. In our case, this environment was a small obstacle course in the first room of the lab. The goal was to make our robot follow the following path in a way such that the robot would cross all the points.</p>
                           <b>Materials:</b>
                           <ul>
                             <li>1 x R/C stunt car</li>
-                            <li>1 x SparkFun RedBoard Artemis Nano</li>
-                            <li>1 x USB cable</li>
-                            <li>2 x Li-Po 3.7V 650mAh (or more) battery</li>
-                            <li>2 x Dual motor drivers</li>
-                            <li>2 x 4m ToF sensor</li>
-                            <li>1 x 9DOF IMU sensor</li>
-                            <li>2 x Qwiic connector</li>
                           </ul>
                           <b>Resources:</b>
                           <ul>
-                              <li>https://klarinetkat.github.io/ECE4160/#ece4160intro</li>
-                              <li>https://cwf54.github.io/#interests</li>
+                              <li>https://zt88.github.io/Fast-Robots/index.html</li>
                           </ul>
                       </div>
                   </div>
@@ -1459,22 +1450,63 @@
                       <div class="flex-grow-1">
                           <div class="subheading mb-3">Procedure.</div>
                           <b>THE PRELAB.</b>
-                          <p>Coming soon!</p>
+                          <p>For this lab we did not have a pre-lab.</p>
                           <div class="flex-grow-1"></div>
                           <b>THE LAB TASKS.</b>
-                          <p>Coming soon!</p>
-                          <p></p>
-                          <p></p>
-                          <p></p>
-                          <p></p>
-                          <p></p>
-                          <p></p>
+                          <b>Attempt 1: P Control.</b>
+                          <p>This lab is unique in comparison to the previous labs because it was quite open-ended; in order to complete the task at hand, we were allowed to use a variety of different methods, including localization, PID, and even open-loop control.</p>
+                          <p>For my first attempt, I decided to implement angular and distance P control. To do that, I recycled some of my Lab 9 code as it used angular P control. The original lab 9 code was split into two sections: one that collected gyroscope data and one that collected TOF sensor data. I used the gyroscope data to estimate yaw and I used the distance measurements to do the mapping portion of the assignment. To cater the code to Lab 12, I slightly modified the angular P control section to include all necessary turns and also implemented distance P control.</p>
+                          <p>In the end, my code consisted of two parts. The first part ran when IMU data was ready and the second part ran when the TOF data was ready. In the first part, I compute a p value based on the most recent gyroscope reading and call a function named car_spin that makes the robot spin for a certain predetermined angle. Below are the screenshots of my first part code and the car_spin function:</p>
+                          <p> </p>
+                          <img src="assets/img/lab_12/imu_part.png" alt="imu_part"
+                              style="width:755px;height:755px;">
+                          <div class="flex-grow-1"></div>
+                          <p> </p>
+                          <img src="assets/img/lab_12/car_spin.png" alt="car_spin"
+                              style="width:605px;height:615px;">
+                          <div class="flex-grow-1"></div>
+                          <p> </p>
+                          <p>In the second part of the code I compute a p value based on the most recent TOF sensor reading and call a function named car_move that uses P control to make my car move a certain distance. Below are the screenshots of my second part code and the car_move function:</p>
+                          <p> </p>
+                          <img src="assets/img/lab_12/dist_part.png" alt="dist_part"
+                              style="width:850px;height:755px;">
+                          <div class="flex-grow-1"></div>
+                          <p> </p>
+                          <img src="assets/img/lab_12/car_move.png" alt="car_move"
+                              style="width:600px;height:450px;">
+                          <div class="flex-grow-1"></div>
+                          <p> </p>
+                          <p>To switch between angular control and speed control, I added two global boolean variables, comp_dis and comp_ang. The variable comp_dis tells us whether the robot finished moving a certain distance and comp_ang_tells us whether the robot finished its spin. Depending on which variable is false, the robot executes that motion and sets the global variable back to true.</p>
+                          <p>This is quite a promising code that could be very effective after many hours of editing. However, I was running out of time to finish the code for this part, so I decided to try a different approach.</p>
+                          <b>Attempt 2: P Control (In Collaboration With Sarika Kannan (sk2446)).</b>
+                          <p>Because I and some other students in the lab were doing this lab on the last available day of lab hours, I decided to collaborate with another student to implement PID control in another way. In this way, we were able to get further along and actually see the robot work with the PID. Below are the PID control function that we used and eight MOVE cases each of which was responsible for one of the eight sections of the total trajectory:</p>
+                          <script src="https://gist.github.com/sarika2446/0e41571ecbc67a3d2baa5be24b9084ae.js"></script>
+                          <script src="https://gist.github.com/sarika2446/0dec5c37ca5bb31aaad5997ea414b692.js"></script>
+                          <p>Even though we got further with this PID control code, the robot wasn’t executing the task very well and this would also take many hours to edit.</p>
+                          <p>Below are several videos demonstrating the robot trying to navigate the obstacle course:</p>
+                          <b>Attempt 3: Open Loop Control (In Collaboration With Sarika Kannan (sk2446)).</b>
+                          <p>Because a good path planning algorithm using PID control would have taken many more hours to perfect and develop, and we were running out of time, we decided to instead try to implement open loop control. Even though this isn’t a very reliable or robust way to execute this task, it was more time efficient and it was easy to test and debug. We structured the code so that the robot alternated between moving forward and spinning for a set number of milliseconds with a custom PWM value for every movement. Below is our code for the open loop control:</p>
+                          <p> </p>
+                          <img src="assets/img/lab_12/olc_0.png" alt="olc_0"
+                              style="width:630px;height:800px;">
+                          <p> </p>
+                          <img src="assets/img/lab_12/olc_1.png" alt="olc_1"
+                              style="width:630px;height:735px;">
+                              <p> </p>
+                              <img src="assets/img/lab_12/olc_2.png" alt="olc_2"
+                                  style="width:630px;height:720px;">
+                              <p> </p>
+                              <img src="assets/img/lab_12/olc_3.png" alt="olc_3"
+                                  style="width:630px;height:900px;">
+                          <div class="flex-grow-1"></div>
+                          <p>Ideally, if we had several more hours to tweak the timers and the PWM values, we could have definitely achieved a perfect run. This is because we completed a couple of runs where the robot would perfectly follow half of the trajectory. Unfortunately, my computer died in the middle of testing and a goal that could have been achieved in no more than thirty minutes became an hours-long task. Because lab hours were almost over by that point, we decided to finish at that stage.</p>
+                          <p>Below are several videos demonstrating the robot trying to follow the path:</p>
                       </div>
                   </div>
                   <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                       <div class="flex-grow-1">
                           <div class="subheading mb-3">Conclusion.</div>
-                          <p>Coming Soon!
+                          <p>In Lab 12, I have concluded my journey with Fast Robots by performing a task that required me to make use of a lot of topics that we have studied this semester. I used bluetooth to allow communication between my computer and the robot, I used TOF and IMU sensor readings, I used open loop control and I used PID control. Even though I didn’t have enough time to demonstrate my robot perfectly following the path, I got a great opportunity to have the flexibility to design my solution instead of following strict requirements. Overall, this was quite an interesting lab and a great finale to the course.
                           </p>
                       </div>
                   </div>
