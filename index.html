@@ -1475,16 +1475,36 @@
                       <p>The first step of completing this lab was to set up the base code. This involved copying  lab11_sim.ipynb and “lab11_real.ipynb” into the notebooks directory, copying “localization_extras.py” into the root directory, and copying “base_ble.py”, “ble.py”, “connection.yaml” and “cmd_types.py” into the notebooks directory.</p>
                       <b>Localization Simulation.</b>
                       <p>Next, we were asked to test the localization simulation by running “lab11_sim.ipynb”. Below is a screenshot of the final plot that I got:</p>
+                      <p> </p>
+                      <img src="assets/img/lab_11/sim.png" alt="sim"
+                          style="width:725px;height:550px;">
+                      <div class="flex-grow-1"></div>
+                      <p> </p>
                       <p>In the plot above, the green line represents ground truth, the blue line represents the Bayes filter estimation and the red line represents the odometry reading. As we can see above, the (blue) Bayes filter estimation is very close to the (green) ground truth.</p>
-                      <p>Localization Using the Real Robot.</p>
-                      <p>The next step was to perform this localization task using our real robot in the “lab11_real.ipynb” notebook.. Instead of doing new measurements, I decided to complete this lab using measurements from lab 9 because I was short on time and because my measurements were quite decent. This meant that I didn’t have to edit any Arduino code; All I did was open the files in Jupyter using pickle, as shown in the screenshot below:</p>
-                      <p></p>
+                      <b>Localization Using the Real Robot.</b>
+                      <p>The next step was to perform this localization task using our real robot in the “lab11_real.ipynb” notebook.. Instead of doing new measurements, I decided to complete this lab using measurements from lab 9 because I was short on time. This meant that I didn’t have to edit any Arduino code; All I did was open the files in Jupyter using pickle, as shown in the screenshot below:</p>
+                      <img src="assets/img/lab_11/pickle.png" alt="pickle"
+                          style="width:530px;height:430px;">
+                      <div class="flex-grow-1"></div>
+                      <p> </p>
+                      <img src="assets/img/lab_11/process.png" alt="process"
+                          style="width:700px;height:570px;">
+                      <div class="flex-grow-1"></div>
+                      <p> </p>
+                      <p>Next, I had to implement a function called perform_observation_loop in the class RealRobot(). This is the only function I really needed to implement because the one above doesn’t really get called. I used Wanda Field’s code as reference. A screenshot of the code is shown below:</p>
+                      <p> </p>
+                      <img src="assets/img/lab_11/functions.png" alt="process"
+                          style="width:775px;height:575px;">
+                      <div class="flex-grow-1"></div>
+                      <p> </p>
+                      <p>Unfortunately I wasn’t able to execute this code fully due to time constraints. Also, there were some issues with my lab 9 code which hindered me from going further. However, I’m sure that if I had more time to edit this it would work properly.</p>
+                      <p> </p>
                   </div>
               </div>
               <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                   <div class="flex-grow-1">
                       <div class="subheading mb-3">Conclusion.</div>
-                      <p>In Lab 11, we explored how different real-world systems and simulations can be. We did this by comparing applying the Bayes filter in a simulated environment versus doing so on our real robot. What we found is that simulations are very optimistic and idealized models of how robots should behave. In real life, there are a lot of factors which cause our results to stray from simulated ones; whereas in simulation we saw that … TO BE FINISHED
+                      <p>In Lab 11, we explored how different real-world systems and simulations can be. We did this by comparing applying the Bayes filter in a simulated environment versus doing so on our real robot. Simulations are very optimistic and idealized models of how robots should behave. In real life however, there are a lot of factors which cause our results to stray from simulated ones. Unfortunately I wasn’t able to fully see this distinction with my own robot, but I understand what my results should have looked like and I understood the main lesson and takeaway of this lab.
                       </p>
                     </div>
                  </div>
