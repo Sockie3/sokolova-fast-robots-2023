@@ -1239,17 +1239,10 @@
                 <div class="flex-grow-1">
                     <h3 class="mb-0">Mapping (Real).</h3>
                     <div class="subheading mb-3">Introduction.</div>
-                    <p>Coming Soon!</p>
+                    <p>The purpose of Lab 9 was to map a stationary room using our robot. To do that, we had to place our robot in a few marked locations and program it to spin around its axis whale collecting TOF data. The challenge of this task was to make sure that our measurements were consistently separated in angular space so that in the end it was possible to obtain a better map.</p>
                     <b>Materials:</b>
                     <ul>
-                      <li>1 x R/C stunt car</li>
-                      <li>1 x SparkFun RedBoard Artemis Nano</li>
-                      <li>1 x USB cable</li>
-                      <li>2 x Li-Po 3.7V 650mAh (or more) battery</li>
-                      <li>2 x Dual motor drivers</li>
-                      <li>2 x 4m ToF sensor</li>
-                      <li>1 x 9DOF IMU sensor</li>
-                      <li>2 x Qwiic connector</li>
+                      <li>1 x Fully assembled robot, with Artemis, TOF sensors, and an IMU.</li>
                     </ul>
                     <b>Resources:</b>
                     <ul>
@@ -1262,14 +1255,20 @@
                 <div class="flex-grow-1">
                     <div class="subheading mb-3">Procedure.</div>
                     <b>THE PRELAB.</b>
-                    <p>Coming soon!</p>
+                    <p>For the prelab, we were suggested to go through the lecture of Transformation Matrices.</p>
                     <div class="flex-grow-1"></div>
                     <b>THE LAB TASKS.</b>
+                    <b>Angular Speed Control.</b>
+                    <p>To complete this lab, I decided to do angular speed control. I implemented it, I split my code into two parts. The first part of the code used the most recent gyroscope data to continuously adjust the PWM value of the wheels. Below is a screenshot of the orientation control code:</p>
+                    <p>As we can see, I first find angular velocity by taking gyroscope data. I then use this to compute the yaw value so that I could keep track of the angle that I am at. I also use this value to compute a new PWM value to input into the robot. To actually control how the robot moves, I also defined a function called car_spin that would take as input the PWM and yaw values and use them to control the robot movement. A screenshot of this function is shown below:</p>
+                    <p>As we can see, the code uses the yaw value to check whether the robot has turned 360 degrees or not. If it doesn't, it keeps spinning at the power defined by the given PWM value. If it does, the robot does a hard stop.</p>
+                    <p>The second part of my code just collected TOF sensor data. A picture of this part of the code is shown below:</p>
+                    <b>Collecting Data.</b>
+                    <p>Once I finished and debugged the code, it was time to collect some data. To do that, I had to have my robot spin 360 degrees in four marked locations in the lab. I decided to take two measurements for each location so that in total I had eight measurements. Below is a video demonstrating one of these measurements:</p>
+                    <p>I also included the corresponding Data vs Time plot, Velocity vs Time plot, Yaw vs Time plot, Angular Velocity vs Time plot, PWM vs Time plot, and a polar coordinate plot, all of which are shown below, in that order:</p>
+                    <p>These results are expected because the robot scans distances that were farther and closer to it.</p>
+                    <b>Mapping.</b>
                     <p>Coming soon!</p>
-                    <p></p>
-                    <p></p>
-                    <p></p>
-                    <p></p>
                     <p></p>
                     <p></p>
                 </div>
@@ -1277,7 +1276,7 @@
             <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                 <div class="flex-grow-1">
                     <div class="subheading mb-3">Conclusion.</div>
-                    <p>Coming Soon!
+                    <p>In Lab 9, I mapped a stationary room by spinning the robot around its axis in several marked locations using angular P control while making TOF sensor measurements. This was a very challenging lab because good measurements were crucial to being able to get a good map. I spent hours and hours redoing my data readings to ensure that the robot spun very close to 360 degrees around its axis at a relatively consistent angular velocity. In the end, we were able to obtain a decent map that … TO BE FINISHED
                     </p>
                   </div>
                </div>
@@ -1382,17 +1381,10 @@
                   <div class="flex-grow-1">
                       <h3 class="mb-0">Localization (Real).</h3>
                       <div class="subheading mb-3">Introduction.</div>
-                      <p>Coming Soon!</p>
+                      <p>The purpose of Lab 11 was to perform localization on a real robot using the Bayes filter. This involved only using the update step based on 360 degree scans as the prediction step would not have been helpful for our noisy robots. This serves as a follow-up to lab 9, where we performed localization in a simulation.</p>
                       <b>Materials:</b>
                       <ul>
-                        <li>1 x R/C stunt car</li>
-                        <li>1 x SparkFun RedBoard Artemis Nano</li>
-                        <li>1 x USB cable</li>
-                        <li>2 x Li-Po 3.7V 650mAh (or more) battery</li>
-                        <li>2 x Dual motor drivers</li>
-                        <li>2 x 4m ToF sensor</li>
-                        <li>1 x 9DOF IMU sensor</li>
-                        <li>2 x Qwiic connector</li>
+                        <li>1 x Fully assembled robot, with Artemis, TOF sensors, and an IMU.r</li>
                       </ul>
                       <b>Resources:</b>
                       <ul>
@@ -1405,22 +1397,23 @@
                   <div class="flex-grow-1">
                       <div class="subheading mb-3">Procedure.</div>
                       <b>THE PRELAB.</b>
-                      <p>Coming soon!</p>
+                      <p>For the prelab, we were suggested to go through the Sensor Models, Motion Models, and the Bayes Filter lectures.</p>
                       <div class="flex-grow-1"></div>
                       <b>THE LAB TASKS.</b>
-                      <p>Coming soon!</p>
-                      <p></p>
-                      <p></p>
-                      <p></p>
-                      <p></p>
-                      <p></p>
+                      <b>Setting Up Code Base.</b>
+                      <p>The first step of completing this lab was to set up the base code. This involved copying  lab11_sim.ipynb and “lab11_real.ipynb” into the notebooks directory, copying “localization_extras.py” into the root directory, and copying “base_ble.py”, “ble.py”, “connection.yaml” and “cmd_types.py” into the notebooks directory.</p>
+                      <b>Localization Simulation.</b>
+                      <p>Next, we were asked to test the localization simulation by running “lab11_sim.ipynb”. Below is a screenshot of the final plot that I got:</p>
+                      <p>In the plot above, the green line represents ground truth, the blue line represents the Bayes filter estimation and the red line represents the odometry reading. As we can see above, the (blue) Bayes filter estimation is very close to the (green) ground truth.</p>
+                      <p>Localization Using the Real Robot.</p>
+                      <p>The next step was to perform this localization task using our real robot in the “lab11_real.ipynb” notebook.. Instead of doing new measurements, I decided to complete this lab using measurements from lab 9 because I was short on time and because my measurements were quite decent. This meant that I didn’t have to edit any Arduino code; All I did was open the files in Jupyter using pickle, as shown in the screenshot below:</p>
                       <p></p>
                   </div>
               </div>
               <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                   <div class="flex-grow-1">
                       <div class="subheading mb-3">Conclusion.</div>
-                      <p>Coming Soon!
+                      <p>In Lab 11, we explored how different real-world systems and simulations can be. We did this by comparing applying the Bayes filter in a simulated environment versus doing so on our real robot. What we found is that simulations are very optimistic and idealized models of how robots should behave. In real life, there are a lot of factors which cause our results to stray from simulated ones; whereas in simulation we saw that … TO BE FINISHED
                       </p>
                     </div>
                  </div>
