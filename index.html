@@ -1248,6 +1248,7 @@
                     <ul>
                         <li>https://klarinetkat.github.io/ECE4160/#ece4160intro</li>
                         <li>https://cwf54.github.io/#interests</li>
+                        <li>https://pages.github.coecis.cornell.edu/rc627/ECE-4960/lab9.html</li>
                     </ul>
                 </div>
             </div>
@@ -1281,7 +1282,6 @@
                     <b>Collecting Data.</b>
                     <p>Once I finished and debugged the code, it was time to collect some data. To do that, I had to have my robot spin 360 degrees in four marked locations in the lab. I decided to take two measurements for each location so that in total I had eight measurements. Below is a video demonstrating one of these measurements:</p>
                     <p>I also included the corresponding Data vs Time plot, Velocity vs Time plot, Yaw vs Time plot, Angular Velocity vs Time plot, PWM vs Time plot, and a polar coordinate plot, all of which are shown below, in that order:</p>
-                    <p>These results are expected because the robot scans distances that were farther and closer to it.</p>
                     <p> </p>
                     <img src="assets/img/lab_9/dis_plt.png" alt="dis_plt"
                         style="width:475px;height:600px;">
@@ -1312,10 +1312,33 @@
                         style="width:500px;height:690px;">
                     <div class="flex-grow-1"></div>
                     <p> </p>
+                    <p>These results are expected because the robot scans distances that were farther and closer to it. Also, I saved the data using pickle so that I could use it to make the map later.</p>
                     <b>Mapping.</b>
-                    <p>Coming soon!</p>
-                    <p></p>
-                    <p></p>
+                    <p>After having collected all the data, it was time to use it to try to map out the room. First, I had to open all the data that I saved using pickle, process it and save it into arrays:</p>
+                    <p> </p>
+                    <img src="assets/img/lab_9/pickle.png" alt="pickle"
+                        style="width:530px;height:430px;">
+                    <div class="flex-grow-1"></div>
+                    <p> </p>
+                    <p> </p>
+                    <img src="assets/img/lab_9/process.png" alt="process"
+                        style="width:700px;height:570px;">
+                    <div class="flex-grow-1"></div>
+                    <p> </p>
+                    <p>Once I did that, I had to use transformation matrices to convert the angle and distance measurements to points corresponding to locations in the room. Below is a screenshot of these matrices:</p>
+                    <p> </p>
+                    <img src="assets/img/lab_9/matrices.png" alt="matrices"
+                        style="width:950px;height:500px;">
+                    <div class="flex-grow-1"></div>
+                    <p> </p>
+                    <p>To achieve this, I used Ryan Chan’s plot function. My plotted data as well as the plot function are shown in the screenshot below:</p>
+                    p> </p>
+                    <img src="assets/img/lab_9/final_plt.png" alt="final_plt"
+                        style="width:625px;height:690px;">
+                    <div class="flex-grow-1"></div>
+                    <p> </p>
+                    <p>Unfortunately, it seems like my plot was very busy and I plotted way more points than I needed to. I’m not sure exactly why this happened and whether this was an issue with the data or an issue with my code. However, it does seem like all together my plot shows a very rough, general shape of the room.</p>
+                    <p> </p>
                 </div>
             </div>
             <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
