@@ -1260,13 +1260,58 @@
                     <b>THE LAB TASKS.</b>
                     <b>Angular Speed Control.</b>
                     <p>To complete this lab, I decided to do angular speed control. I implemented it, I split my code into two parts. The first part of the code used the most recent gyroscope data to continuously adjust the PWM value of the wheels. Below is a screenshot of the orientation control code:</p>
+                    <p> </p>
+                    <img src="assets/img/lab_9/ang_code.png" alt="ang_code"
+                        style="width:800px;height:780px;">
+                    <div class="flex-grow-1"></div>
+                    <p> </p>
                     <p>As we can see, I first find angular velocity by taking gyroscope data. I then use this to compute the yaw value so that I could keep track of the angle that I am at. I also use this value to compute a new PWM value to input into the robot. To actually control how the robot moves, I also defined a function called car_spin that would take as input the PWM and yaw values and use them to control the robot movement. A screenshot of this function is shown below:</p>
+                    <p> </p>
+                    <img src="assets/img/lab_9/car_spin.png" alt="car_spin"
+                        style="width:475px;height:450px;">
+                    <div class="flex-grow-1"></div>
+                    <p> </p>
                     <p>As we can see, the code uses the yaw value to check whether the robot has turned 360 degrees or not. If it doesn't, it keeps spinning at the power defined by the given PWM value. If it does, the robot does a hard stop.</p>
                     <p>The second part of my code just collected TOF sensor data. A picture of this part of the code is shown below:</p>
+                    <p> </p>
+                    <img src="assets/img/lab_9/dis_code.png" alt="dis_code"
+                        style="width:1025px;height:500px;">
+                    <div class="flex-grow-1"></div>
+                    <p> </p>
                     <b>Collecting Data.</b>
                     <p>Once I finished and debugged the code, it was time to collect some data. To do that, I had to have my robot spin 360 degrees in four marked locations in the lab. I decided to take two measurements for each location so that in total I had eight measurements. Below is a video demonstrating one of these measurements:</p>
                     <p>I also included the corresponding Data vs Time plot, Velocity vs Time plot, Yaw vs Time plot, Angular Velocity vs Time plot, PWM vs Time plot, and a polar coordinate plot, all of which are shown below, in that order:</p>
                     <p>These results are expected because the robot scans distances that were farther and closer to it.</p>
+                    <p> </p>
+                    <img src="assets/img/lab_9/dis_plt.png" alt="dis_plt"
+                        style="width:475px;height:600px;">
+                    <div class="flex-grow-1"></div>
+                    <p> </p>
+                    <p> </p>
+                    <img src="assets/img/lab_9/vel_plt.png" alt="vel_plt"
+                        style="width:500px;height:600px;">
+                    <div class="flex-grow-1"></div>
+                    <p> </p>
+                    <p> </p>
+                    <img src="assets/img/lab_9/yaw_plt.png" alt="yaw_plt"
+                        style="width:460px;height:550px;">
+                    <div class="flex-grow-1"></div>
+                    <p> </p>
+                    <p> </p>
+                    <img src="assets/img/lab_9/ang_vel_plt.png" alt="ang_vel_plt"
+                        style="width:455px;height:550px;">
+                    <div class="flex-grow-1"></div>
+                    <p> </p>
+                    <p> </p>
+                    <img src="assets/img/lab_9/pwm_plt.png" alt="pwm_plt.png"
+                        style="width:460px;height:450px;">
+                    <div class="flex-grow-1"></div>
+                    <p> </p>
+                    <p> </p>
+                    <img src="assets/img/lab_9/polar_plt.png" alt="polar_plt"
+                        style="width:500px;height:690px;">
+                    <div class="flex-grow-1"></div>
+                    <p> </p>
                     <b>Mapping.</b>
                     <p>Coming soon!</p>
                     <p></p>
