@@ -5,6 +5,6 @@ Link to my webpage:
 https://sockie3.github.io/#about
 
 <img class="mb-5" src="assets/img/about/car_wiring_0.jpg" alt="car_wiring_0"
-                    style="width:472px;height:500px;">
+                    style="width:500px;">
 <img class="mb-5" src="assets/img/about/car_wiring_1.jpg" alt="car_wiring_1"
-                    style="width:500px;height:500px;">
+                    style="width:500px;">
