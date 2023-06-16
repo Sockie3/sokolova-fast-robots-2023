@@ -5,6 +5,3 @@ This GitHub page is dedicated to documenting the Fast Robots project. The purpos
                     style="width:472px;height:500px;">
 <img class="mb-5" src="assets/img/about/car_wiring_1.jpg" alt="car_wiring_1"
                     style="width:500px;height:500px;">
-
-![car_wiring_0](https://github.com/Sockie3/Sockie3.github.io/assets/125540062/d3f1b223-51d7-416a-add8-f4a776596164)
-![car_wiring_1](https://github.com/Sockie3/Sockie3.github.io/assets/125540062/02fc95f6-0b47-49ec-9efa-2ab7a213ce44)
