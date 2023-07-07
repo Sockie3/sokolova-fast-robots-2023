@@ -62,39 +62,41 @@
                     <a href="mailto:ms2663@cornell.edu">ms2663@cornell.edu</a>
                 </div>
                 <h3 class="mb-0">About Me.</h3>
-                <p class="lead mb-5">My name is Mariya Sokolova and I am an Electrical and Computer Engineering student
+                <p> </p>
+                <p>My name is Mariya Sokolova and I am an Electrical and Computer Engineering student
                     at Cornell University graduating in December 2023.</p>
-                <p class="lead mb-5"> </p>
+                <p> </p>
                 <h3 class="mb-0">About the Project.</h3>
-                <b class="lead mb-5">INTRODUCTION.</b>
-                <p class="lead mb-5"> </p>
-                <p class="lead mb-5">This GitHub page is dedicated to documenting the “Fast Robots” project. “Fast Robots”, or ECE 4160, is a project-based Cornell course that focuses on systems level design and implementation of dynamic autonomous robots.</p>
-                <p class="lead mb-5">The goal of this project was to design and build a fast autonomous RC car that would eventually be able to collect data with its sensors and perform various tasks using feedback control. Its capabilities consist of:</p>
+                <p> </p>
+                <b>INTRODUCTION.</b>
+                <p> </p>
+                <p>This GitHub page is dedicated to documenting the “Fast Robots” project. “Fast Robots”, or ECE 4160, is a project-based Cornell course that focuses on systems level design and implementation of dynamic autonomous robots.</p>
+                <p>The goal of this project was to design and build a fast autonomous RC car that would eventually be able to collect data with its sensors and perform various tasks using feedback control. Its capabilities consist of:</p>
                 <ul>
                     <li>Avoiding obstacle collisions when moving on a straight path.</li>
                     <li>Mapping, a process where the robot maps out its environment.</li>
                     <li>Localization, a process where the robot determines its location with respect to its environment.</li>
                     <li>Path planning, a process where the robot follows a pre-determined trjectory.</li>
                 </ul>
-                <p class="lead mb-5"> </p>
-                <b class="lead mb-5">BUILDING THE ROBOT.</b>
-                <p class="lead mb-5"> </p>
-                <p class="lead mb-5">The first stage of this project was to build the robot. I used an Arduino-compatible Artemis Nano chip as the processor.</p>
-                <p class="lead mb-5">The first task involved installing the Aruino IDE and testing the Artemis Nano by running the built-in Blink module.</p>
-                <p class="lead mb-5">Second, I had to set up the software. I would program the robot using Arduino C in the Arduino IDE and I would obtain and process data in using Python in Jupyter Notebook. To do this, I first had to enable bluetooth communication between the chip and my computer using the ArduinoBLE library.</p>
-                <p class="lead mb-5">Next, I used soldering and QWIIC connectors to add two Time of Flight (TOF) sensors and an Internal Measurement Unit (IMU) to the Artemis chip so that the robot could gather data from the outside world. The TOF sensor collected distance measurements while the IMU collected data from its built-in gyroscope and accelerometer.</p>
-                <p class="lead mb-5">Lastly, I assembled the robot by taking a toy car, removing its original hardware, and replacing it with the Artemis chip, sensors, two motor drivers and two batteries. While assembling the robot I made design choices that helped me in later experiments; specifically, I used rubber bands rather than tape to easily be able to access the hardware in the future, and I ducktaped the car wheels to reduce friction so that the robot could rotate more easily.</p>
-                <p class="lead mb-5">Every step of the way I repeatedly tested the hardware and software to troubleshoot any issues as soon as possible. At the end of this stage I had a fully assembled robotic RC car that I could program.</p>
-                <p class="lead mb-5"> </p>
-                <b class="lead mb-5">PROGRAMMING THE ROBOT.</b>
-                <p class="lead mb-5"> </p>
-                <p class="lead mb-5">I used Arduino C in the Arduino IDE to program the robot and transferred my code onto the Artemis chip using a USB. The robot would send back data onto my computer via Bluetooth and I used Python in Jupyter Notebook to obtain and process it.</p>
-                <p class="lead mb-5">The first task was to allow the robot to move towards a wall and stop before it could crash. To achieve this, I programmed the robot to adjust its speed based on continuous distance readings from the TOF sensor using Proportional-Integral-Derivative (PID) feedback control.</p>
-                <p class="lead mb-5">Next, I programmed the robot to rush towards a wall and flip before it could crash using extrapolation. The challenge was that the TOF sensors have some delay between distance measurements, so when the robot is moving fast it’s very hard to predict when it should flip to just avoid hitting the wall. Faulty and unpredictable hardware made it only possible to achieve at random chance, but in theory after infinitely many trials the robot could flip. Later, I applied a Kalman filter to my data to see how it could help smooth the distance vs time function so that the robot had a more accurate idea of where it is and when it should flip.</p>
-                <p class="lead mb-5">The next task was mapping. I placed the robot in a few marked locations inside of an obstacle course and used angular PID control to have the robot rotate around its axis and take distance measurements. To process the data, I plotted this data using polar coordinates, converted it to cartesian coordinates, and created a plot where I overlapped data from the different measurements. The result gave me a map of the obstacle course. The final map turned out to be very noisy, which could have been due to issues with the TOF sensors or some conversion error.</p>
-                <p class="lead mb-5">The next task was localization, where the robot used a Bayes filter to determine its location with respect it its surroundings. I completed this task in simulation but it didn’t work in real life due to issues with the map and time constraints. The last task was path planning, where I used a combination of PID control as well as open-loop control to have the robot navigate an obstacle course.</p>
-                <p class="lead mb-5">As a result, I built a robot that was capable of a wide variety of tasks. Even though the quality and unpredictability of the hardware made it very difficult to achieve seamless results and obtain good data, this was a very rewarding project that I’m excited to share with the world!</p>
-                <p class="lead mb-5"> </p>
+                <p> </p>
+                <b>BUILDING THE ROBOT.</b>
+                <p> </p>
+                <p>The first stage of this project was to build the robot. I used an Arduino-compatible Artemis Nano chip as the processor.</p>
+                <p>The first task involved installing the Aruino IDE and testing the Artemis Nano by running the built-in Blink module.</p>
+                <p>Second, I had to set up the software. I would program the robot using Arduino C in the Arduino IDE and I would obtain and process data in using Python in Jupyter Notebook. To do this, I first had to enable bluetooth communication between the chip and my computer using the ArduinoBLE library.</p>
+                <p>Next, I used soldering and QWIIC connectors to add two Time of Flight (TOF) sensors and an Internal Measurement Unit (IMU) to the Artemis chip so that the robot could gather data from the outside world. The TOF sensor collected distance measurements while the IMU collected data from its built-in gyroscope and accelerometer.</p>
+                <p>Lastly, I assembled the robot by taking a toy car, removing its original hardware, and replacing it with the Artemis chip, sensors, two motor drivers and two batteries. While assembling the robot I made design choices that helped me in later experiments; specifically, I used rubber bands rather than tape to easily be able to access the hardware in the future, and I ducktaped the car wheels to reduce friction so that the robot could rotate more easily.</p>
+                <p>Every step of the way I repeatedly tested the hardware and software to troubleshoot any issues as soon as possible. At the end of this stage I had a fully assembled robotic RC car that I could program.</p>
+                <p> </p>
+                <b>PROGRAMMING THE ROBOT.</b>
+                <p> </p>
+                <p>I used Arduino C in the Arduino IDE to program the robot and transferred my code onto the Artemis chip using a USB. The robot would send back data onto my computer via Bluetooth and I used Python in Jupyter Notebook to obtain and process it.</p>
+                <p>The first task was to allow the robot to move towards a wall and stop before it could crash. To achieve this, I programmed the robot to adjust its speed based on continuous distance readings from the TOF sensor using Proportional-Integral-Derivative (PID) feedback control.</p>
+                <p>Next, I programmed the robot to rush towards a wall and flip before it could crash using extrapolation. The challenge was that the TOF sensors have some delay between distance measurements, so when the robot is moving fast it’s very hard to predict when it should flip to just avoid hitting the wall. Faulty and unpredictable hardware made it only possible to achieve at random chance, but in theory after infinitely many trials the robot could flip. Later, I applied a Kalman filter to my data to see how it could help smooth the distance vs time function so that the robot had a more accurate idea of where it is and when it should flip.</p>
+                <p>The next task was mapping. I placed the robot in a few marked locations inside of an obstacle course and used angular PID control to have the robot rotate around its axis and take distance measurements. To process the data, I plotted this data using polar coordinates, converted it to cartesian coordinates, and created a plot where I overlapped data from the different measurements. The result gave me a map of the obstacle course. The final map turned out to be very noisy, which could have been due to issues with the TOF sensors or some conversion error.</p>
+                <p>The next task was localization, where the robot used a Bayes filter to determine its location with respect it its surroundings. I completed this task in simulation but it didn’t work in real life due to issues with the map and time constraints. The last task was path planning, where I used a combination of PID control as well as open-loop control to have the robot navigate an obstacle course.</p>
+                <p>As a result, I built a robot that was capable of a wide variety of tasks. Even though the quality and unpredictability of the hardware made it very difficult to achieve seamless results and obtain good data, this was a very rewarding project that I’m excited to share with the world!</p>
+                <p> </p>
                 <img class="mb-5" src="assets/img/about/car_wiring_0.jpg" alt="car_wiring_0"
                     style="width:472px;height:500px;">
                 <img class="mb-5" src="assets/img/about/car_wiring_1.jpg" alt="car_wiring_1"
